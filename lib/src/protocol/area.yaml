@@ -1,0 +1,4 @@
+class: Area
+table: area
+fields:
+  area: String

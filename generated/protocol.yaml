@@ -1,0 +1,7 @@
+example:
+  - hello:
+users:
+  - getUsers:
+  - addUsers:
+  - updateUsers:
+  - deleteUsers:

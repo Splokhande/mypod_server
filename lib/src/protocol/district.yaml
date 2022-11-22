@@ -1,0 +1,6 @@
+class: District
+table: district
+fields:
+  areaId: int
+  cityId: int
+  district: String
