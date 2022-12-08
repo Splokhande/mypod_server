@@ -12,7 +12,7 @@
 project_name = "mypod"
 
 # The region where to deploy the server.
-aws_region = "us-west-2"
+aws_region = "ap-south-1"
 
 # Enabling Redis may incur additional costs. You will also need to enable Redis
 # in your staging.yaml and production.yaml configuration files.
