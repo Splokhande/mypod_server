@@ -1,4 +1,5 @@
 import 'package:mypod_server/import_helper.dart';
+import 'package:mypod_server/src/generated/city.dart';
 import 'package:serverpod/serverpod.dart';
 
 class CityEndpoint extends Endpoint {
@@ -7,7 +8,7 @@ class CityEndpoint extends Endpoint {
     return true;
   }
 
-  Future<List<City>> getCity(Session session, int areaId,
+  Future<List<City>> getAllCity(Session session, int areaId,
       {String? keyword}) async {
     return await City.find(session,
         where: (t) => keyword != null ? t.city.like(keyword) : Constant(true));
@@ -22,4 +23,10 @@ class CityEndpoint extends Endpoint {
     int result = await City.delete(session, where: (t) => t.id.equals(id));
     return result == 1;
   }
+
+//   Future<List<List<dynamic>>> getAllCity(Session session, int areaId,
+//       {String? keyword}) async {
+//     // return await City.find(session,
+//     //     where: (t) => keyword != null ? t.city.like(keyword) : Constant(true));
+// var result = await session.db.query('query') ; }
 }

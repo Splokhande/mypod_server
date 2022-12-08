@@ -25,10 +25,10 @@ enable_redis = false
 # *.example.com to your certificate. You will need to create one certificate
 # for your main region and one for use with Cloudfront that resides in the
 # us-east-1 region.
-hosted_zone_id             = "<YOUR HOSTED ZONE ID>"
-top_domain                 = "<YOUR DOMAIN NAME>"
-certificate_arn            = "<YOUR CERTIFICATE ARN>"
-cloudfront_certificate_arn = "<YOUR CERTIFICATE ARN IN US-EAST-1>"
+hosted_zone_id             = "Z09290561L6SQUL41IMGJ"
+top_domain                 = "thehoodjunction.com"
+certificate_arn            = "arn:aws:acm:ap-south-1:866336669344:certificate/e88cbb66-4880-4266-9f8a-fcbe3a559575"
+cloudfront_certificate_arn = "arn:aws:acm:us-east-1:866336669344:certificate/26f56602-e2e2-46aa-9cb5-ee7f2188235d"
 
 # Subdomains for different services. Default values are recommended, but you
 # may want to change the subdomain_web to www if you are using the top domain
@@ -51,7 +51,7 @@ use_top_domain_for_web = false
 # Serverpod is tested with Amazon Linux 2 Kernel 5.x (You can find the AMI ids 
 # for a specifc region under EC2 > AMI Catalog in your AWS console.)
 instance_type                = "t2.micro"
-instance_ami                 = "ami-0ca285d4c2cda3300"
+instance_ami                 = "ami-074dc0a6f6c764218"
 autoscaling_min_size         = 1
 autoscaling_max_size         = 1
 autoscaling_desired_capacity = 1

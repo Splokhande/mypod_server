@@ -11,7 +11,9 @@ terraform {
   required_version = ">= 1.1.9"
 }
 
-provider "aws" {
+provider "aws"{
   #   profile = "default"
-  region = var.aws_region
+  region = "ap-south-1"
+  access_key = "AKIA4TNNQP2QAHMSVLME"
+  secret_key = "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"
 }

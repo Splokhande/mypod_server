@@ -1,5 +1,5 @@
 class: City
 table: city
 fields:
-  areaId: int
+  districtId: int
   city: String

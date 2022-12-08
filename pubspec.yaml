@@ -7,7 +7,10 @@ environment:
   sdk: '>=2.17.0 <3.0.0'
 
 dependencies:
-  serverpod: ^0.9.19
-
+  serverpod:
+  serverpod_auth_server:
 dev_dependencies:
-  lints: ^2.0.0
+  lints:
+modules:
+  serverpod_auth:
+    nickname: auth

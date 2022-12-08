@@ -1,7 +1,5 @@
 class: State
 table: state
 fields:
-  areaId: int
-  cityId: int
-  districtId: int
+  countryId: int
   state: String

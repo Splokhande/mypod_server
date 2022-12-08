@@ -1,5 +1,5 @@
-class: Users
-table: users
+class: Members
+table: members
 fields: 
   name: String
   age: int

@@ -2,7 +2,7 @@
 -- Class Address as table address
 --
 
-CREATE TABLE address (
+CREATE TABLE "address" (
   "id" serial,
   "areaId" integer NOT NULL,
   "wardId" integer NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE address (
   "pincode" integer NOT NULL
 );
 
-ALTER TABLE ONLY address
+ALTER TABLE ONLY "address"
   ADD CONSTRAINT address_pkey PRIMARY KEY (id);
 
 
@@ -24,12 +24,13 @@ ALTER TABLE ONLY address
 -- Class Area as table area
 --
 
-CREATE TABLE area (
+CREATE TABLE "area" (
   "id" serial,
-  "area" text NOT NULL
+  "area" text NOT NULL,
+  "cityId" integer NOT NULL
 );
 
-ALTER TABLE ONLY area
+ALTER TABLE ONLY "area"
   ADD CONSTRAINT area_pkey PRIMARY KEY (id);
 
 
@@ -37,13 +38,13 @@ ALTER TABLE ONLY area
 -- Class City as table city
 --
 
-CREATE TABLE city (
+CREATE TABLE "city" (
   "id" serial,
-  "areaId" integer NOT NULL,
+  "districtId" integer NOT NULL,
   "city" text NOT NULL
 );
 
-ALTER TABLE ONLY city
+ALTER TABLE ONLY "city"
   ADD CONSTRAINT city_pkey PRIMARY KEY (id);
 
 
@@ -51,7 +52,7 @@ ALTER TABLE ONLY city
 -- Class Country as table country
 --
 
-CREATE TABLE country (
+CREATE TABLE "country" (
   "id" serial,
   "areaId" integer NOT NULL,
   "cityId" integer NOT NULL,
@@ -60,7 +61,7 @@ CREATE TABLE country (
   "country" text NOT NULL
 );
 
-ALTER TABLE ONLY country
+ALTER TABLE ONLY "country"
   ADD CONSTRAINT country_pkey PRIMARY KEY (id);
 
 
@@ -68,14 +69,13 @@ ALTER TABLE ONLY country
 -- Class District as table district
 --
 
-CREATE TABLE district (
+CREATE TABLE "district" (
   "id" serial,
-  "areaId" integer NOT NULL,
-  "cityId" integer NOT NULL,
+  "stateId" integer NOT NULL,
   "district" text NOT NULL
 );
 
-ALTER TABLE ONLY district
+ALTER TABLE ONLY "district"
   ADD CONSTRAINT district_pkey PRIMARY KEY (id);
 
 
@@ -83,7 +83,7 @@ ALTER TABLE ONLY district
 -- Class MaintainenceCharges as table maintainence_charges
 --
 
-CREATE TABLE maintainence_charges (
+CREATE TABLE "maintainence_charges" (
   "id" serial,
   "socId" integer NOT NULL,
   "fromDate" timestamp without time zone NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE maintainence_charges (
   "isActive" boolean NOT NULL
 );
 
-ALTER TABLE ONLY maintainence_charges
+ALTER TABLE ONLY "maintainence_charges"
   ADD CONSTRAINT maintainence_charges_pkey PRIMARY KEY (id);
 
 
@@ -113,7 +113,7 @@ ALTER TABLE ONLY maintainence_charges
 -- Class MaintenanceBook as table maintenance_book
 --
 
-CREATE TABLE maintenance_book (
+CREATE TABLE "maintenance_book" (
   "id" serial,
   "socId" integer NOT NULL,
   "receiptId" integer NOT NULL,
@@ -128,15 +128,38 @@ CREATE TABLE maintenance_book (
   "penalty" integer NOT NULL
 );
 
-ALTER TABLE ONLY maintenance_book
+ALTER TABLE ONLY "maintenance_book"
   ADD CONSTRAINT maintenance_book_pkey PRIMARY KEY (id);
+
+
+--
+-- Class Members as table members
+--
+
+CREATE TABLE "members" (
+  "id" serial,
+  "name" text NOT NULL,
+  "age" integer NOT NULL,
+  "mobile" text NOT NULL,
+  "email" text NOT NULL,
+  "aadharNo" text NOT NULL,
+  "panNo" text NOT NULL,
+  "dob" timestamp without time zone NOT NULL,
+  "blockCount" integer NOT NULL,
+  "mobileModel" text NOT NULL,
+  "status" boolean NOT NULL,
+  "isActive" boolean NOT NULL
+);
+
+ALTER TABLE ONLY "members"
+  ADD CONSTRAINT members_pkey PRIMARY KEY (id);
 
 
 --
 -- Class Rooms as table rooms
 --
 
-CREATE TABLE rooms (
+CREATE TABLE "rooms" (
   "id" serial,
   "socId" integer NOT NULL,
   "roomNo" integer NOT NULL,
@@ -154,7 +177,7 @@ CREATE TABLE rooms (
   "rentalId" json NOT NULL
 );
 
-ALTER TABLE ONLY rooms
+ALTER TABLE ONLY "rooms"
   ADD CONSTRAINT rooms_pkey PRIMARY KEY (id);
 
 
@@ -162,7 +185,7 @@ ALTER TABLE ONLY rooms
 -- Class SocietyAmenities as table soc_amenities
 --
 
-CREATE TABLE soc_amenities (
+CREATE TABLE "soc_amenities" (
   "id" serial,
   "socId" integer NOT NULL,
   "bikeParking" boolean NOT NULL,
@@ -180,7 +203,7 @@ CREATE TABLE soc_amenities (
   "onSitMaintenance" boolean NOT NULL
 );
 
-ALTER TABLE ONLY soc_amenities
+ALTER TABLE ONLY "soc_amenities"
   ADD CONSTRAINT soc_amenities_pkey PRIMARY KEY (id);
 
 
@@ -188,7 +211,7 @@ ALTER TABLE ONLY soc_amenities
 -- Class SocBody as table soc_body
 --
 
-CREATE TABLE soc_body (
+CREATE TABLE "soc_body" (
   "id" serial,
   "socId" integer NOT NULL,
   "chairman" integer NOT NULL,
@@ -201,7 +224,7 @@ CREATE TABLE soc_body (
   "year" integer NOT NULL
 );
 
-ALTER TABLE ONLY soc_body
+ALTER TABLE ONLY "soc_body"
   ADD CONSTRAINT soc_body_pkey PRIMARY KEY (id);
 
 
@@ -209,7 +232,7 @@ ALTER TABLE ONLY soc_body
 -- Class Society as table society
 --
 
-CREATE TABLE society (
+CREATE TABLE "society" (
   "id" serial,
   "socName" text NOT NULL,
   "socRegNo" text NOT NULL,
@@ -224,7 +247,7 @@ CREATE TABLE society (
   "landmark" text NOT NULL
 );
 
-ALTER TABLE ONLY society
+ALTER TABLE ONLY "society"
   ADD CONSTRAINT society_pkey PRIMARY KEY (id);
 
 
@@ -232,15 +255,13 @@ ALTER TABLE ONLY society
 -- Class State as table state
 --
 
-CREATE TABLE state (
+CREATE TABLE "state" (
   "id" serial,
-  "areaId" integer NOT NULL,
-  "cityId" integer NOT NULL,
-  "districtId" integer NOT NULL,
+  "countryId" integer NOT NULL,
   "state" text NOT NULL
 );
 
-ALTER TABLE ONLY state
+ALTER TABLE ONLY "state"
   ADD CONSTRAINT state_pkey PRIMARY KEY (id);
 
 
@@ -248,7 +269,7 @@ ALTER TABLE ONLY state
 -- Class UserRoom as table user_room
 --
 
-CREATE TABLE user_room (
+CREATE TABLE "user_room" (
   "id" serial,
   "socId" integer NOT NULL,
   "userId" integer NOT NULL,
@@ -260,38 +281,15 @@ CREATE TABLE user_room (
   "isRental" boolean NOT NULL
 );
 
-ALTER TABLE ONLY user_room
+ALTER TABLE ONLY "user_room"
   ADD CONSTRAINT user_room_pkey PRIMARY KEY (id);
-
-
---
--- Class Users as table users
---
-
-CREATE TABLE users (
-  "id" serial,
-  "name" text NOT NULL,
-  "age" integer NOT NULL,
-  "mobile" text NOT NULL,
-  "email" text NOT NULL,
-  "aadharNo" text NOT NULL,
-  "panNo" text NOT NULL,
-  "dob" timestamp without time zone NOT NULL,
-  "blockCount" integer NOT NULL,
-  "mobileModel" text NOT NULL,
-  "status" boolean NOT NULL,
-  "isActive" boolean NOT NULL
-);
-
-ALTER TABLE ONLY users
-  ADD CONSTRAINT users_pkey PRIMARY KEY (id);
 
 
 --
 -- Class Vehicles as table vehicles
 --
 
-CREATE TABLE vehicles (
+CREATE TABLE "vehicles" (
   "id" serial,
   "vehicleNo" text NOT NULL,
   "ownerId" integer NOT NULL,
@@ -301,7 +299,7 @@ CREATE TABLE vehicles (
   "updatedDate" timestamp without time zone NOT NULL
 );
 
-ALTER TABLE ONLY vehicles
+ALTER TABLE ONLY "vehicles"
   ADD CONSTRAINT vehicles_pkey PRIMARY KEY (id);
 
 
