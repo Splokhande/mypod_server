@@ -1,98 +1,79 @@
 /* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
 /*   To generate run: "serverpod generate"    */
 
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: public_member_api_docs
-// ignore_for_file: unused_import
-// ignore_for_file: unnecessary_import
-// ignore_for_file: overridden_fields
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: implementation_imports
 
-import 'package:serverpod/serverpod.dart';
-import 'package:serverpod_serialization/serverpod_serialization.dart';
-import 'dart:typed_data';
-import 'protocol.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:serverpod/serverpod.dart' as _i1;
 
-class State extends TableRow {
-  @override
-  String get className => 'State';
-  @override
-  String get tableName => 'state';
+class State extends _i1.TableRow {
+  State({
+    int? id,
+    required this.countryId,
+    required this.state,
+  }) : super(id);
+
+  factory State.fromJson(
+    Map<String, dynamic> jsonSerialization,
+    _i1.SerializationManager serializationManager,
+  ) {
+    return State(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
+      countryId:
+          serializationManager.deserialize<int>(jsonSerialization['countryId']),
+      state:
+          serializationManager.deserialize<String>(jsonSerialization['state']),
+    );
+  }
 
   static final t = StateTable();
 
-  @override
-  int? id;
-  late int areaId;
-  late int cityId;
-  late int districtId;
-  late String state;
+  int countryId;
 
-  State({
-    this.id,
-    required this.areaId,
-    required this.cityId,
-    required this.districtId,
-    required this.state,
-  });
-
-  State.fromSerialization(Map<String, dynamic> serialization) {
-    var _data = unwrapSerializationData(serialization);
-    id = _data['id'];
-    areaId = _data['areaId']!;
-    cityId = _data['cityId']!;
-    districtId = _data['districtId']!;
-    state = _data['state']!;
-  }
+  String state;
 
   @override
-  Map<String, dynamic> serialize() {
-    return wrapSerializationData({
+  String get tableName => 'state';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
       'id': id,
-      'areaId': areaId,
-      'cityId': cityId,
-      'districtId': districtId,
+      'countryId': countryId,
       'state': state,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeForDatabase() {
-    return wrapSerializationData({
+  Map<String, dynamic> toJsonForDatabase() {
+    return {
       'id': id,
-      'areaId': areaId,
-      'cityId': cityId,
-      'districtId': districtId,
+      'countryId': countryId,
       'state': state,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeAll() {
-    return wrapSerializationData({
+  Map<String, dynamic> allToJson() {
+    return {
       'id': id,
-      'areaId': areaId,
-      'cityId': cityId,
-      'districtId': districtId,
+      'countryId': countryId,
       'state': state,
-    });
+    };
   }
 
   @override
-  void setColumn(String columnName, value) {
+  void setColumn(
+    String columnName,
+    value,
+  ) {
     switch (columnName) {
       case 'id':
         id = value;
         return;
-      case 'areaId':
-        areaId = value;
-        return;
-      case 'cityId':
-        cityId = value;
-        return;
-      case 'districtId':
-        districtId = value;
+      case 'countryId':
+        countryId = value;
         return;
       case 'state':
         state = value;
@@ -103,15 +84,15 @@ class State extends TableRow {
   }
 
   static Future<List<State>> find(
-    Session session, {
+    _i1.Session session, {
     StateExpressionBuilder? where,
     int? limit,
     int? offset,
-    Column? orderBy,
-    List<Order>? orderByList,
+    _i1.Column? orderBy,
+    List<_i1.Order>? orderByList,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.find<State>(
       where: where != null ? where(State.t) : null,
@@ -126,13 +107,13 @@ class State extends TableRow {
   }
 
   static Future<State?> findSingleRow(
-    Session session, {
+    _i1.Session session, {
     StateExpressionBuilder? where,
     int? offset,
-    Column? orderBy,
+    _i1.Column? orderBy,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.findSingleRow<State>(
       where: where != null ? where(State.t) : null,
@@ -144,14 +125,17 @@ class State extends TableRow {
     );
   }
 
-  static Future<State?> findById(Session session, int id) async {
+  static Future<State?> findById(
+    _i1.Session session,
+    int id,
+  ) async {
     return session.db.findById<State>(id);
   }
 
   static Future<int> delete(
-    Session session, {
+    _i1.Session session, {
     required StateExpressionBuilder where,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.delete<State>(
       where: where(State.t),
@@ -160,9 +144,9 @@ class State extends TableRow {
   }
 
   static Future<bool> deleteRow(
-    Session session,
+    _i1.Session session,
     State row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.deleteRow(
       row,
@@ -171,9 +155,9 @@ class State extends TableRow {
   }
 
   static Future<bool> update(
-    Session session,
+    _i1.Session session,
     State row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.update(
       row,
@@ -182,19 +166,22 @@ class State extends TableRow {
   }
 
   static Future<void> insert(
-    Session session,
+    _i1.Session session,
     State row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
-    return session.db.insert(row, transaction: transaction);
+    return session.db.insert(
+      row,
+      transaction: transaction,
+    );
   }
 
   static Future<int> count(
-    Session session, {
+    _i1.Session session, {
     StateExpressionBuilder? where,
     int? limit,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.count<State>(
       where: where != null ? where(State.t) : null,
@@ -205,25 +192,21 @@ class State extends TableRow {
   }
 }
 
-typedef StateExpressionBuilder = Expression Function(StateTable t);
+typedef StateExpressionBuilder = _i1.Expression Function(StateTable);
 
-class StateTable extends Table {
+class StateTable extends _i1.Table {
   StateTable() : super(tableName: 'state');
 
-  @override
-  String tableName = 'state';
-  final id = ColumnInt('id');
-  final areaId = ColumnInt('areaId');
-  final cityId = ColumnInt('cityId');
-  final districtId = ColumnInt('districtId');
-  final state = ColumnString('state');
+  final id = _i1.ColumnInt('id');
+
+  final countryId = _i1.ColumnInt('countryId');
+
+  final state = _i1.ColumnString('state');
 
   @override
-  List<Column> get columns => [
+  List<_i1.Column> get columns => [
         id,
-        areaId,
-        cityId,
-        districtId,
+        countryId,
         state,
       ];
 }

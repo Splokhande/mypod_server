@@ -1,43 +1,16 @@
 /* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
 /*   To generate run: "serverpod generate"    */
 
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: public_member_api_docs
-// ignore_for_file: unused_import
-// ignore_for_file: unnecessary_import
-// ignore_for_file: overridden_fields
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: implementation_imports
 
-import 'package:serverpod/serverpod.dart';
-import 'package:serverpod_serialization/serverpod_serialization.dart';
-import 'dart:typed_data';
-import 'protocol.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:serverpod/serverpod.dart' as _i1;
 
-class MaintenanceBook extends TableRow {
-  @override
-  String get className => 'MaintenanceBook';
-  @override
-  String get tableName => 'maintenance_book';
-
-  static final t = MaintenanceBookTable();
-
-  @override
-  int? id;
-  late int socId;
-  late int receiptId;
-  late int roomNo;
-  late String block;
-  late int year;
-  late int ownerId;
-  late String paymentMode;
-  late DateTime paymentDate;
-  late int collectedBy;
-  late String month;
-  late int penalty;
-
+class MaintenanceBook extends _i1.TableRow {
   MaintenanceBook({
-    this.id,
+    int? id,
     required this.socId,
     required this.receiptId,
     required this.roomNo,
@@ -49,27 +22,66 @@ class MaintenanceBook extends TableRow {
     required this.collectedBy,
     required this.month,
     required this.penalty,
-  });
+  }) : super(id);
 
-  MaintenanceBook.fromSerialization(Map<String, dynamic> serialization) {
-    var _data = unwrapSerializationData(serialization);
-    id = _data['id'];
-    socId = _data['socId']!;
-    receiptId = _data['receiptId']!;
-    roomNo = _data['roomNo']!;
-    block = _data['block']!;
-    year = _data['year']!;
-    ownerId = _data['ownerId']!;
-    paymentMode = _data['paymentMode']!;
-    paymentDate = DateTime.tryParse(_data['paymentDate'])!;
-    collectedBy = _data['collectedBy']!;
-    month = _data['month']!;
-    penalty = _data['penalty']!;
+  factory MaintenanceBook.fromJson(
+    Map<String, dynamic> jsonSerialization,
+    _i1.SerializationManager serializationManager,
+  ) {
+    return MaintenanceBook(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
+      socId: serializationManager.deserialize<int>(jsonSerialization['socId']),
+      receiptId:
+          serializationManager.deserialize<int>(jsonSerialization['receiptId']),
+      roomNo:
+          serializationManager.deserialize<int>(jsonSerialization['roomNo']),
+      block:
+          serializationManager.deserialize<String>(jsonSerialization['block']),
+      year: serializationManager.deserialize<int>(jsonSerialization['year']),
+      ownerId:
+          serializationManager.deserialize<int>(jsonSerialization['ownerId']),
+      paymentMode: serializationManager
+          .deserialize<String>(jsonSerialization['paymentMode']),
+      paymentDate: serializationManager
+          .deserialize<DateTime>(jsonSerialization['paymentDate']),
+      collectedBy: serializationManager
+          .deserialize<int>(jsonSerialization['collectedBy']),
+      month:
+          serializationManager.deserialize<String>(jsonSerialization['month']),
+      penalty:
+          serializationManager.deserialize<int>(jsonSerialization['penalty']),
+    );
   }
 
+  static final t = MaintenanceBookTable();
+
+  int socId;
+
+  int receiptId;
+
+  int roomNo;
+
+  String block;
+
+  int year;
+
+  int ownerId;
+
+  String paymentMode;
+
+  DateTime paymentDate;
+
+  int collectedBy;
+
+  String month;
+
+  int penalty;
+
   @override
-  Map<String, dynamic> serialize() {
-    return wrapSerializationData({
+  String get tableName => 'maintenance_book';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
       'id': id,
       'socId': socId,
       'receiptId': receiptId,
@@ -78,16 +90,16 @@ class MaintenanceBook extends TableRow {
       'year': year,
       'ownerId': ownerId,
       'paymentMode': paymentMode,
-      'paymentDate': paymentDate.toUtc().toIso8601String(),
+      'paymentDate': paymentDate,
       'collectedBy': collectedBy,
       'month': month,
       'penalty': penalty,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeForDatabase() {
-    return wrapSerializationData({
+  Map<String, dynamic> toJsonForDatabase() {
+    return {
       'id': id,
       'socId': socId,
       'receiptId': receiptId,
@@ -96,16 +108,16 @@ class MaintenanceBook extends TableRow {
       'year': year,
       'ownerId': ownerId,
       'paymentMode': paymentMode,
-      'paymentDate': paymentDate.toUtc().toIso8601String(),
+      'paymentDate': paymentDate,
       'collectedBy': collectedBy,
       'month': month,
       'penalty': penalty,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeAll() {
-    return wrapSerializationData({
+  Map<String, dynamic> allToJson() {
+    return {
       'id': id,
       'socId': socId,
       'receiptId': receiptId,
@@ -114,15 +126,18 @@ class MaintenanceBook extends TableRow {
       'year': year,
       'ownerId': ownerId,
       'paymentMode': paymentMode,
-      'paymentDate': paymentDate.toUtc().toIso8601String(),
+      'paymentDate': paymentDate,
       'collectedBy': collectedBy,
       'month': month,
       'penalty': penalty,
-    });
+    };
   }
 
   @override
-  void setColumn(String columnName, value) {
+  void setColumn(
+    String columnName,
+    value,
+  ) {
     switch (columnName) {
       case 'id':
         id = value;
@@ -166,15 +181,15 @@ class MaintenanceBook extends TableRow {
   }
 
   static Future<List<MaintenanceBook>> find(
-    Session session, {
+    _i1.Session session, {
     MaintenanceBookExpressionBuilder? where,
     int? limit,
     int? offset,
-    Column? orderBy,
-    List<Order>? orderByList,
+    _i1.Column? orderBy,
+    List<_i1.Order>? orderByList,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.find<MaintenanceBook>(
       where: where != null ? where(MaintenanceBook.t) : null,
@@ -189,13 +204,13 @@ class MaintenanceBook extends TableRow {
   }
 
   static Future<MaintenanceBook?> findSingleRow(
-    Session session, {
+    _i1.Session session, {
     MaintenanceBookExpressionBuilder? where,
     int? offset,
-    Column? orderBy,
+    _i1.Column? orderBy,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.findSingleRow<MaintenanceBook>(
       where: where != null ? where(MaintenanceBook.t) : null,
@@ -207,14 +222,17 @@ class MaintenanceBook extends TableRow {
     );
   }
 
-  static Future<MaintenanceBook?> findById(Session session, int id) async {
+  static Future<MaintenanceBook?> findById(
+    _i1.Session session,
+    int id,
+  ) async {
     return session.db.findById<MaintenanceBook>(id);
   }
 
   static Future<int> delete(
-    Session session, {
+    _i1.Session session, {
     required MaintenanceBookExpressionBuilder where,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.delete<MaintenanceBook>(
       where: where(MaintenanceBook.t),
@@ -223,9 +241,9 @@ class MaintenanceBook extends TableRow {
   }
 
   static Future<bool> deleteRow(
-    Session session,
+    _i1.Session session,
     MaintenanceBook row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.deleteRow(
       row,
@@ -234,9 +252,9 @@ class MaintenanceBook extends TableRow {
   }
 
   static Future<bool> update(
-    Session session,
+    _i1.Session session,
     MaintenanceBook row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.update(
       row,
@@ -245,19 +263,22 @@ class MaintenanceBook extends TableRow {
   }
 
   static Future<void> insert(
-    Session session,
+    _i1.Session session,
     MaintenanceBook row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
-    return session.db.insert(row, transaction: transaction);
+    return session.db.insert(
+      row,
+      transaction: transaction,
+    );
   }
 
   static Future<int> count(
-    Session session, {
+    _i1.Session session, {
     MaintenanceBookExpressionBuilder? where,
     int? limit,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.count<MaintenanceBook>(
       where: where != null ? where(MaintenanceBook.t) : null,
@@ -268,29 +289,38 @@ class MaintenanceBook extends TableRow {
   }
 }
 
-typedef MaintenanceBookExpressionBuilder = Expression Function(
-    MaintenanceBookTable t);
+typedef MaintenanceBookExpressionBuilder = _i1.Expression Function(
+    MaintenanceBookTable);
 
-class MaintenanceBookTable extends Table {
+class MaintenanceBookTable extends _i1.Table {
   MaintenanceBookTable() : super(tableName: 'maintenance_book');
 
-  @override
-  String tableName = 'maintenance_book';
-  final id = ColumnInt('id');
-  final socId = ColumnInt('socId');
-  final receiptId = ColumnInt('receiptId');
-  final roomNo = ColumnInt('roomNo');
-  final block = ColumnString('block');
-  final year = ColumnInt('year');
-  final ownerId = ColumnInt('ownerId');
-  final paymentMode = ColumnString('paymentMode');
-  final paymentDate = ColumnDateTime('paymentDate');
-  final collectedBy = ColumnInt('collectedBy');
-  final month = ColumnString('month');
-  final penalty = ColumnInt('penalty');
+  final id = _i1.ColumnInt('id');
+
+  final socId = _i1.ColumnInt('socId');
+
+  final receiptId = _i1.ColumnInt('receiptId');
+
+  final roomNo = _i1.ColumnInt('roomNo');
+
+  final block = _i1.ColumnString('block');
+
+  final year = _i1.ColumnInt('year');
+
+  final ownerId = _i1.ColumnInt('ownerId');
+
+  final paymentMode = _i1.ColumnString('paymentMode');
+
+  final paymentDate = _i1.ColumnDateTime('paymentDate');
+
+  final collectedBy = _i1.ColumnInt('collectedBy');
+
+  final month = _i1.ColumnString('month');
+
+  final penalty = _i1.ColumnInt('penalty');
 
   @override
-  List<Column> get columns => [
+  List<_i1.Column> get columns => [
         id,
         socId,
         receiptId,

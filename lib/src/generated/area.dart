@@ -1,68 +1,72 @@
 /* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
 /*   To generate run: "serverpod generate"    */
 
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: public_member_api_docs
-// ignore_for_file: unused_import
-// ignore_for_file: unnecessary_import
-// ignore_for_file: overridden_fields
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: implementation_imports
 
-import 'package:serverpod/serverpod.dart';
-import 'package:serverpod_serialization/serverpod_serialization.dart';
-import 'dart:typed_data';
-import 'protocol.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:serverpod/serverpod.dart' as _i1;
 
-class Area extends TableRow {
-  @override
-  String get className => 'Area';
-  @override
-  String get tableName => 'area';
+class Area extends _i1.TableRow {
+  Area({
+    int? id,
+    required this.area,
+    required this.cityId,
+  }) : super(id);
+
+  factory Area.fromJson(
+    Map<String, dynamic> jsonSerialization,
+    _i1.SerializationManager serializationManager,
+  ) {
+    return Area(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
+      area: serializationManager.deserialize<String>(jsonSerialization['area']),
+      cityId:
+          serializationManager.deserialize<int>(jsonSerialization['cityId']),
+    );
+  }
 
   static final t = AreaTable();
 
-  @override
-  int? id;
-  late String area;
+  String area;
 
-  Area({
-    this.id,
-    required this.area,
-  });
-
-  Area.fromSerialization(Map<String, dynamic> serialization) {
-    var _data = unwrapSerializationData(serialization);
-    id = _data['id'];
-    area = _data['area']!;
-  }
+  int cityId;
 
   @override
-  Map<String, dynamic> serialize() {
-    return wrapSerializationData({
+  String get tableName => 'area';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
       'id': id,
       'area': area,
-    });
+      'cityId': cityId,
+    };
   }
 
   @override
-  Map<String, dynamic> serializeForDatabase() {
-    return wrapSerializationData({
+  Map<String, dynamic> toJsonForDatabase() {
+    return {
       'id': id,
       'area': area,
-    });
+      'cityId': cityId,
+    };
   }
 
   @override
-  Map<String, dynamic> serializeAll() {
-    return wrapSerializationData({
+  Map<String, dynamic> allToJson() {
+    return {
       'id': id,
       'area': area,
-    });
+      'cityId': cityId,
+    };
   }
 
   @override
-  void setColumn(String columnName, value) {
+  void setColumn(
+    String columnName,
+    value,
+  ) {
     switch (columnName) {
       case 'id':
         id = value;
@@ -70,21 +74,24 @@ class Area extends TableRow {
       case 'area':
         area = value;
         return;
+      case 'cityId':
+        cityId = value;
+        return;
       default:
         throw UnimplementedError();
     }
   }
 
   static Future<List<Area>> find(
-    Session session, {
+    _i1.Session session, {
     AreaExpressionBuilder? where,
     int? limit,
     int? offset,
-    Column? orderBy,
-    List<Order>? orderByList,
+    _i1.Column? orderBy,
+    List<_i1.Order>? orderByList,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.find<Area>(
       where: where != null ? where(Area.t) : null,
@@ -99,13 +106,13 @@ class Area extends TableRow {
   }
 
   static Future<Area?> findSingleRow(
-    Session session, {
+    _i1.Session session, {
     AreaExpressionBuilder? where,
     int? offset,
-    Column? orderBy,
+    _i1.Column? orderBy,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.findSingleRow<Area>(
       where: where != null ? where(Area.t) : null,
@@ -117,14 +124,17 @@ class Area extends TableRow {
     );
   }
 
-  static Future<Area?> findById(Session session, int id) async {
+  static Future<Area?> findById(
+    _i1.Session session,
+    int id,
+  ) async {
     return session.db.findById<Area>(id);
   }
 
   static Future<int> delete(
-    Session session, {
+    _i1.Session session, {
     required AreaExpressionBuilder where,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.delete<Area>(
       where: where(Area.t),
@@ -133,9 +143,9 @@ class Area extends TableRow {
   }
 
   static Future<bool> deleteRow(
-    Session session,
+    _i1.Session session,
     Area row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.deleteRow(
       row,
@@ -144,9 +154,9 @@ class Area extends TableRow {
   }
 
   static Future<bool> update(
-    Session session,
+    _i1.Session session,
     Area row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.update(
       row,
@@ -155,19 +165,22 @@ class Area extends TableRow {
   }
 
   static Future<void> insert(
-    Session session,
+    _i1.Session session,
     Area row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
-    return session.db.insert(row, transaction: transaction);
+    return session.db.insert(
+      row,
+      transaction: transaction,
+    );
   }
 
   static Future<int> count(
-    Session session, {
+    _i1.Session session, {
     AreaExpressionBuilder? where,
     int? limit,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.count<Area>(
       where: where != null ? where(Area.t) : null,
@@ -178,20 +191,22 @@ class Area extends TableRow {
   }
 }
 
-typedef AreaExpressionBuilder = Expression Function(AreaTable t);
+typedef AreaExpressionBuilder = _i1.Expression Function(AreaTable);
 
-class AreaTable extends Table {
+class AreaTable extends _i1.Table {
   AreaTable() : super(tableName: 'area');
 
-  @override
-  String tableName = 'area';
-  final id = ColumnInt('id');
-  final area = ColumnString('area');
+  final id = _i1.ColumnInt('id');
+
+  final area = _i1.ColumnString('area');
+
+  final cityId = _i1.ColumnInt('cityId');
 
   @override
-  List<Column> get columns => [
+  List<_i1.Column> get columns => [
         id,
         area,
+        cityId,
       ];
 }
 

@@ -1,4 +1,5 @@
 import 'package:mypod_server/import_helper.dart';
+import 'package:mypod_server/src/generated/country.dart';
 import 'package:serverpod/serverpod.dart';
 
 class CountryEndpoint extends Endpoint {

@@ -1,80 +1,78 @@
 /* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
 /*   To generate run: "serverpod generate"    */
 
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: public_member_api_docs
-// ignore_for_file: unused_import
-// ignore_for_file: unnecessary_import
-// ignore_for_file: overridden_fields
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: implementation_imports
 
-import 'package:serverpod/serverpod.dart';
-import 'package:serverpod_serialization/serverpod_serialization.dart';
-import 'dart:typed_data';
-import 'protocol.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:serverpod/serverpod.dart' as _i1;
 
-class City extends TableRow {
-  @override
-  String get className => 'City';
-  @override
-  String get tableName => 'city';
+class City extends _i1.TableRow {
+  City({
+    int? id,
+    required this.districtId,
+    required this.city,
+  }) : super(id);
+
+  factory City.fromJson(
+    Map<String, dynamic> jsonSerialization,
+    _i1.SerializationManager serializationManager,
+  ) {
+    return City(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
+      districtId: serializationManager
+          .deserialize<int>(jsonSerialization['districtId']),
+      city: serializationManager.deserialize<String>(jsonSerialization['city']),
+    );
+  }
 
   static final t = CityTable();
 
-  @override
-  int? id;
-  late int areaId;
-  late String city;
+  int districtId;
 
-  City({
-    this.id,
-    required this.areaId,
-    required this.city,
-  });
-
-  City.fromSerialization(Map<String, dynamic> serialization) {
-    var _data = unwrapSerializationData(serialization);
-    id = _data['id'];
-    areaId = _data['areaId']!;
-    city = _data['city']!;
-  }
+  String city;
 
   @override
-  Map<String, dynamic> serialize() {
-    return wrapSerializationData({
+  String get tableName => 'city';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
       'id': id,
-      'areaId': areaId,
+      'districtId': districtId,
       'city': city,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeForDatabase() {
-    return wrapSerializationData({
+  Map<String, dynamic> toJsonForDatabase() {
+    return {
       'id': id,
-      'areaId': areaId,
+      'districtId': districtId,
       'city': city,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeAll() {
-    return wrapSerializationData({
+  Map<String, dynamic> allToJson() {
+    return {
       'id': id,
-      'areaId': areaId,
+      'districtId': districtId,
       'city': city,
-    });
+    };
   }
 
   @override
-  void setColumn(String columnName, value) {
+  void setColumn(
+    String columnName,
+    value,
+  ) {
     switch (columnName) {
       case 'id':
         id = value;
         return;
-      case 'areaId':
-        areaId = value;
+      case 'districtId':
+        districtId = value;
         return;
       case 'city':
         city = value;
@@ -85,15 +83,15 @@ class City extends TableRow {
   }
 
   static Future<List<City>> find(
-    Session session, {
+    _i1.Session session, {
     CityExpressionBuilder? where,
     int? limit,
     int? offset,
-    Column? orderBy,
-    List<Order>? orderByList,
+    _i1.Column? orderBy,
+    List<_i1.Order>? orderByList,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.find<City>(
       where: where != null ? where(City.t) : null,
@@ -108,13 +106,13 @@ class City extends TableRow {
   }
 
   static Future<City?> findSingleRow(
-    Session session, {
+    _i1.Session session, {
     CityExpressionBuilder? where,
     int? offset,
-    Column? orderBy,
+    _i1.Column? orderBy,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.findSingleRow<City>(
       where: where != null ? where(City.t) : null,
@@ -126,14 +124,17 @@ class City extends TableRow {
     );
   }
 
-  static Future<City?> findById(Session session, int id) async {
+  static Future<City?> findById(
+    _i1.Session session,
+    int id,
+  ) async {
     return session.db.findById<City>(id);
   }
 
   static Future<int> delete(
-    Session session, {
+    _i1.Session session, {
     required CityExpressionBuilder where,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.delete<City>(
       where: where(City.t),
@@ -142,9 +143,9 @@ class City extends TableRow {
   }
 
   static Future<bool> deleteRow(
-    Session session,
+    _i1.Session session,
     City row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.deleteRow(
       row,
@@ -153,9 +154,9 @@ class City extends TableRow {
   }
 
   static Future<bool> update(
-    Session session,
+    _i1.Session session,
     City row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.update(
       row,
@@ -164,19 +165,22 @@ class City extends TableRow {
   }
 
   static Future<void> insert(
-    Session session,
+    _i1.Session session,
     City row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
-    return session.db.insert(row, transaction: transaction);
+    return session.db.insert(
+      row,
+      transaction: transaction,
+    );
   }
 
   static Future<int> count(
-    Session session, {
+    _i1.Session session, {
     CityExpressionBuilder? where,
     int? limit,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.count<City>(
       where: where != null ? where(City.t) : null,
@@ -187,21 +191,21 @@ class City extends TableRow {
   }
 }
 
-typedef CityExpressionBuilder = Expression Function(CityTable t);
+typedef CityExpressionBuilder = _i1.Expression Function(CityTable);
 
-class CityTable extends Table {
+class CityTable extends _i1.Table {
   CityTable() : super(tableName: 'city');
 
-  @override
-  String tableName = 'city';
-  final id = ColumnInt('id');
-  final areaId = ColumnInt('areaId');
-  final city = ColumnString('city');
+  final id = _i1.ColumnInt('id');
+
+  final districtId = _i1.ColumnInt('districtId');
+
+  final city = _i1.ColumnString('city');
 
   @override
-  List<Column> get columns => [
+  List<_i1.Column> get columns => [
         id,
-        areaId,
+        districtId,
         city,
       ];
 }

@@ -1,43 +1,16 @@
 /* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
 /*   To generate run: "serverpod generate"    */
 
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: public_member_api_docs
-// ignore_for_file: unused_import
-// ignore_for_file: unnecessary_import
-// ignore_for_file: overridden_fields
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: implementation_imports
 
-import 'package:serverpod/serverpod.dart';
-import 'package:serverpod_serialization/serverpod_serialization.dart';
-import 'dart:typed_data';
-import 'protocol.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:serverpod/serverpod.dart' as _i1;
 
-class Society extends TableRow {
-  @override
-  String get className => 'Society';
-  @override
-  String get tableName => 'society';
-
-  static final t = SocietyTable();
-
-  @override
-  int? id;
-  late String socName;
-  late String socRegNo;
-  late int socAddressId;
-  late int totalRoom;
-  late int totalBlock;
-  late int totalShop;
-  late List<int> totalFloor;
-  late List<int> maxRoomsEachFloor;
-  late double latitude;
-  late double longitude;
-  late String landmark;
-
+class Society extends _i1.TableRow {
   Society({
-    this.id,
+    int? id,
     required this.socName,
     required this.socRegNo,
     required this.socAddressId,
@@ -49,27 +22,68 @@ class Society extends TableRow {
     required this.latitude,
     required this.longitude,
     required this.landmark,
-  });
+  }) : super(id);
 
-  Society.fromSerialization(Map<String, dynamic> serialization) {
-    var _data = unwrapSerializationData(serialization);
-    id = _data['id'];
-    socName = _data['socName']!;
-    socRegNo = _data['socRegNo']!;
-    socAddressId = _data['socAddressId']!;
-    totalRoom = _data['totalRoom']!;
-    totalBlock = _data['totalBlock']!;
-    totalShop = _data['totalShop']!;
-    totalFloor = _data['totalFloor']!.cast<int>();
-    maxRoomsEachFloor = _data['maxRoomsEachFloor']!.cast<int>();
-    latitude = _data['latitude']!;
-    longitude = _data['longitude']!;
-    landmark = _data['landmark']!;
+  factory Society.fromJson(
+    Map<String, dynamic> jsonSerialization,
+    _i1.SerializationManager serializationManager,
+  ) {
+    return Society(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
+      socName: serializationManager
+          .deserialize<String>(jsonSerialization['socName']),
+      socRegNo: serializationManager
+          .deserialize<String>(jsonSerialization['socRegNo']),
+      socAddressId: serializationManager
+          .deserialize<int>(jsonSerialization['socAddressId']),
+      totalRoom:
+          serializationManager.deserialize<int>(jsonSerialization['totalRoom']),
+      totalBlock: serializationManager
+          .deserialize<int>(jsonSerialization['totalBlock']),
+      totalShop:
+          serializationManager.deserialize<int>(jsonSerialization['totalShop']),
+      totalFloor: serializationManager
+          .deserialize<List<int>>(jsonSerialization['totalFloor']),
+      maxRoomsEachFloor: serializationManager
+          .deserialize<List<int>>(jsonSerialization['maxRoomsEachFloor']),
+      latitude: serializationManager
+          .deserialize<double>(jsonSerialization['latitude']),
+      longitude: serializationManager
+          .deserialize<double>(jsonSerialization['longitude']),
+      landmark: serializationManager
+          .deserialize<String>(jsonSerialization['landmark']),
+    );
   }
 
+  static final t = SocietyTable();
+
+  String socName;
+
+  String socRegNo;
+
+  int socAddressId;
+
+  int totalRoom;
+
+  int totalBlock;
+
+  int totalShop;
+
+  List<int> totalFloor;
+
+  List<int> maxRoomsEachFloor;
+
+  double latitude;
+
+  double longitude;
+
+  String landmark;
+
   @override
-  Map<String, dynamic> serialize() {
-    return wrapSerializationData({
+  String get tableName => 'society';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
       'id': id,
       'socName': socName,
       'socRegNo': socRegNo,
@@ -82,12 +96,12 @@ class Society extends TableRow {
       'latitude': latitude,
       'longitude': longitude,
       'landmark': landmark,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeForDatabase() {
-    return wrapSerializationData({
+  Map<String, dynamic> toJsonForDatabase() {
+    return {
       'id': id,
       'socName': socName,
       'socRegNo': socRegNo,
@@ -100,12 +114,12 @@ class Society extends TableRow {
       'latitude': latitude,
       'longitude': longitude,
       'landmark': landmark,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeAll() {
-    return wrapSerializationData({
+  Map<String, dynamic> allToJson() {
+    return {
       'id': id,
       'socName': socName,
       'socRegNo': socRegNo,
@@ -118,11 +132,14 @@ class Society extends TableRow {
       'latitude': latitude,
       'longitude': longitude,
       'landmark': landmark,
-    });
+    };
   }
 
   @override
-  void setColumn(String columnName, value) {
+  void setColumn(
+    String columnName,
+    value,
+  ) {
     switch (columnName) {
       case 'id':
         id = value;
@@ -166,15 +183,15 @@ class Society extends TableRow {
   }
 
   static Future<List<Society>> find(
-    Session session, {
+    _i1.Session session, {
     SocietyExpressionBuilder? where,
     int? limit,
     int? offset,
-    Column? orderBy,
-    List<Order>? orderByList,
+    _i1.Column? orderBy,
+    List<_i1.Order>? orderByList,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.find<Society>(
       where: where != null ? where(Society.t) : null,
@@ -189,13 +206,13 @@ class Society extends TableRow {
   }
 
   static Future<Society?> findSingleRow(
-    Session session, {
+    _i1.Session session, {
     SocietyExpressionBuilder? where,
     int? offset,
-    Column? orderBy,
+    _i1.Column? orderBy,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.findSingleRow<Society>(
       where: where != null ? where(Society.t) : null,
@@ -207,14 +224,17 @@ class Society extends TableRow {
     );
   }
 
-  static Future<Society?> findById(Session session, int id) async {
+  static Future<Society?> findById(
+    _i1.Session session,
+    int id,
+  ) async {
     return session.db.findById<Society>(id);
   }
 
   static Future<int> delete(
-    Session session, {
+    _i1.Session session, {
     required SocietyExpressionBuilder where,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.delete<Society>(
       where: where(Society.t),
@@ -223,9 +243,9 @@ class Society extends TableRow {
   }
 
   static Future<bool> deleteRow(
-    Session session,
+    _i1.Session session,
     Society row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.deleteRow(
       row,
@@ -234,9 +254,9 @@ class Society extends TableRow {
   }
 
   static Future<bool> update(
-    Session session,
+    _i1.Session session,
     Society row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.update(
       row,
@@ -245,19 +265,22 @@ class Society extends TableRow {
   }
 
   static Future<void> insert(
-    Session session,
+    _i1.Session session,
     Society row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
-    return session.db.insert(row, transaction: transaction);
+    return session.db.insert(
+      row,
+      transaction: transaction,
+    );
   }
 
   static Future<int> count(
-    Session session, {
+    _i1.Session session, {
     SocietyExpressionBuilder? where,
     int? limit,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.count<Society>(
       where: where != null ? where(Society.t) : null,
@@ -268,28 +291,37 @@ class Society extends TableRow {
   }
 }
 
-typedef SocietyExpressionBuilder = Expression Function(SocietyTable t);
+typedef SocietyExpressionBuilder = _i1.Expression Function(SocietyTable);
 
-class SocietyTable extends Table {
+class SocietyTable extends _i1.Table {
   SocietyTable() : super(tableName: 'society');
 
-  @override
-  String tableName = 'society';
-  final id = ColumnInt('id');
-  final socName = ColumnString('socName');
-  final socRegNo = ColumnString('socRegNo');
-  final socAddressId = ColumnInt('socAddressId');
-  final totalRoom = ColumnInt('totalRoom');
-  final totalBlock = ColumnInt('totalBlock');
-  final totalShop = ColumnInt('totalShop');
-  final totalFloor = ColumnSerializable('totalFloor');
-  final maxRoomsEachFloor = ColumnSerializable('maxRoomsEachFloor');
-  final latitude = ColumnDouble('latitude');
-  final longitude = ColumnDouble('longitude');
-  final landmark = ColumnString('landmark');
+  final id = _i1.ColumnInt('id');
+
+  final socName = _i1.ColumnString('socName');
+
+  final socRegNo = _i1.ColumnString('socRegNo');
+
+  final socAddressId = _i1.ColumnInt('socAddressId');
+
+  final totalRoom = _i1.ColumnInt('totalRoom');
+
+  final totalBlock = _i1.ColumnInt('totalBlock');
+
+  final totalShop = _i1.ColumnInt('totalShop');
+
+  final totalFloor = _i1.ColumnSerializable('totalFloor');
+
+  final maxRoomsEachFloor = _i1.ColumnSerializable('maxRoomsEachFloor');
+
+  final latitude = _i1.ColumnDouble('latitude');
+
+  final longitude = _i1.ColumnDouble('longitude');
+
+  final landmark = _i1.ColumnString('landmark');
 
   @override
-  List<Column> get columns => [
+  List<_i1.Column> get columns => [
         id,
         socName,
         socRegNo,

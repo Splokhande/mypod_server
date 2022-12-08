@@ -1,40 +1,16 @@
 /* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
 /*   To generate run: "serverpod generate"    */
 
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: public_member_api_docs
-// ignore_for_file: unused_import
-// ignore_for_file: unnecessary_import
-// ignore_for_file: overridden_fields
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: implementation_imports
 
-import 'package:serverpod/serverpod.dart';
-import 'package:serverpod_serialization/serverpod_serialization.dart';
-import 'dart:typed_data';
-import 'protocol.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:serverpod/serverpod.dart' as _i1;
 
-class UserRoom extends TableRow {
-  @override
-  String get className => 'UserRoom';
-  @override
-  String get tableName => 'user_room';
-
-  static final t = UserRoomTable();
-
-  @override
-  int? id;
-  late int socId;
-  late int userId;
-  late int roomId;
-  late DateTime fromDate;
-  late DateTime toDate;
-  late bool ownership;
-  late bool isResident;
-  late bool isRental;
-
+class UserRoom extends _i1.TableRow {
   UserRoom({
-    this.id,
+    int? id,
     required this.socId,
     required this.userId,
     required this.roomId,
@@ -43,68 +19,102 @@ class UserRoom extends TableRow {
     required this.ownership,
     required this.isResident,
     required this.isRental,
-  });
+  }) : super(id);
 
-  UserRoom.fromSerialization(Map<String, dynamic> serialization) {
-    var _data = unwrapSerializationData(serialization);
-    id = _data['id'];
-    socId = _data['socId']!;
-    userId = _data['userId']!;
-    roomId = _data['roomId']!;
-    fromDate = DateTime.tryParse(_data['fromDate'])!;
-    toDate = DateTime.tryParse(_data['toDate'])!;
-    ownership = _data['ownership']!;
-    isResident = _data['isResident']!;
-    isRental = _data['isRental']!;
+  factory UserRoom.fromJson(
+    Map<String, dynamic> jsonSerialization,
+    _i1.SerializationManager serializationManager,
+  ) {
+    return UserRoom(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
+      socId: serializationManager.deserialize<int>(jsonSerialization['socId']),
+      userId:
+          serializationManager.deserialize<int>(jsonSerialization['userId']),
+      roomId:
+          serializationManager.deserialize<int>(jsonSerialization['roomId']),
+      fromDate: serializationManager
+          .deserialize<DateTime>(jsonSerialization['fromDate']),
+      toDate: serializationManager
+          .deserialize<DateTime>(jsonSerialization['toDate']),
+      ownership: serializationManager
+          .deserialize<bool>(jsonSerialization['ownership']),
+      isResident: serializationManager
+          .deserialize<bool>(jsonSerialization['isResident']),
+      isRental:
+          serializationManager.deserialize<bool>(jsonSerialization['isRental']),
+    );
   }
 
+  static final t = UserRoomTable();
+
+  int socId;
+
+  int userId;
+
+  int roomId;
+
+  DateTime fromDate;
+
+  DateTime toDate;
+
+  bool ownership;
+
+  bool isResident;
+
+  bool isRental;
+
   @override
-  Map<String, dynamic> serialize() {
-    return wrapSerializationData({
+  String get tableName => 'user_room';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
       'id': id,
       'socId': socId,
       'userId': userId,
       'roomId': roomId,
-      'fromDate': fromDate.toUtc().toIso8601String(),
-      'toDate': toDate.toUtc().toIso8601String(),
+      'fromDate': fromDate,
+      'toDate': toDate,
       'ownership': ownership,
       'isResident': isResident,
       'isRental': isRental,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeForDatabase() {
-    return wrapSerializationData({
+  Map<String, dynamic> toJsonForDatabase() {
+    return {
       'id': id,
       'socId': socId,
       'userId': userId,
       'roomId': roomId,
-      'fromDate': fromDate.toUtc().toIso8601String(),
-      'toDate': toDate.toUtc().toIso8601String(),
+      'fromDate': fromDate,
+      'toDate': toDate,
       'ownership': ownership,
       'isResident': isResident,
       'isRental': isRental,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeAll() {
-    return wrapSerializationData({
+  Map<String, dynamic> allToJson() {
+    return {
       'id': id,
       'socId': socId,
       'userId': userId,
       'roomId': roomId,
-      'fromDate': fromDate.toUtc().toIso8601String(),
-      'toDate': toDate.toUtc().toIso8601String(),
+      'fromDate': fromDate,
+      'toDate': toDate,
       'ownership': ownership,
       'isResident': isResident,
       'isRental': isRental,
-    });
+    };
   }
 
   @override
-  void setColumn(String columnName, value) {
+  void setColumn(
+    String columnName,
+    value,
+  ) {
     switch (columnName) {
       case 'id':
         id = value;
@@ -139,15 +149,15 @@ class UserRoom extends TableRow {
   }
 
   static Future<List<UserRoom>> find(
-    Session session, {
+    _i1.Session session, {
     UserRoomExpressionBuilder? where,
     int? limit,
     int? offset,
-    Column? orderBy,
-    List<Order>? orderByList,
+    _i1.Column? orderBy,
+    List<_i1.Order>? orderByList,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.find<UserRoom>(
       where: where != null ? where(UserRoom.t) : null,
@@ -162,13 +172,13 @@ class UserRoom extends TableRow {
   }
 
   static Future<UserRoom?> findSingleRow(
-    Session session, {
+    _i1.Session session, {
     UserRoomExpressionBuilder? where,
     int? offset,
-    Column? orderBy,
+    _i1.Column? orderBy,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.findSingleRow<UserRoom>(
       where: where != null ? where(UserRoom.t) : null,
@@ -180,14 +190,17 @@ class UserRoom extends TableRow {
     );
   }
 
-  static Future<UserRoom?> findById(Session session, int id) async {
+  static Future<UserRoom?> findById(
+    _i1.Session session,
+    int id,
+  ) async {
     return session.db.findById<UserRoom>(id);
   }
 
   static Future<int> delete(
-    Session session, {
+    _i1.Session session, {
     required UserRoomExpressionBuilder where,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.delete<UserRoom>(
       where: where(UserRoom.t),
@@ -196,9 +209,9 @@ class UserRoom extends TableRow {
   }
 
   static Future<bool> deleteRow(
-    Session session,
+    _i1.Session session,
     UserRoom row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.deleteRow(
       row,
@@ -207,9 +220,9 @@ class UserRoom extends TableRow {
   }
 
   static Future<bool> update(
-    Session session,
+    _i1.Session session,
     UserRoom row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.update(
       row,
@@ -218,19 +231,22 @@ class UserRoom extends TableRow {
   }
 
   static Future<void> insert(
-    Session session,
+    _i1.Session session,
     UserRoom row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
-    return session.db.insert(row, transaction: transaction);
+    return session.db.insert(
+      row,
+      transaction: transaction,
+    );
   }
 
   static Future<int> count(
-    Session session, {
+    _i1.Session session, {
     UserRoomExpressionBuilder? where,
     int? limit,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.count<UserRoom>(
       where: where != null ? where(UserRoom.t) : null,
@@ -241,25 +257,31 @@ class UserRoom extends TableRow {
   }
 }
 
-typedef UserRoomExpressionBuilder = Expression Function(UserRoomTable t);
+typedef UserRoomExpressionBuilder = _i1.Expression Function(UserRoomTable);
 
-class UserRoomTable extends Table {
+class UserRoomTable extends _i1.Table {
   UserRoomTable() : super(tableName: 'user_room');
 
-  @override
-  String tableName = 'user_room';
-  final id = ColumnInt('id');
-  final socId = ColumnInt('socId');
-  final userId = ColumnInt('userId');
-  final roomId = ColumnInt('roomId');
-  final fromDate = ColumnDateTime('fromDate');
-  final toDate = ColumnDateTime('toDate');
-  final ownership = ColumnBool('ownership');
-  final isResident = ColumnBool('isResident');
-  final isRental = ColumnBool('isRental');
+  final id = _i1.ColumnInt('id');
+
+  final socId = _i1.ColumnInt('socId');
+
+  final userId = _i1.ColumnInt('userId');
+
+  final roomId = _i1.ColumnInt('roomId');
+
+  final fromDate = _i1.ColumnDateTime('fromDate');
+
+  final toDate = _i1.ColumnDateTime('toDate');
+
+  final ownership = _i1.ColumnBool('ownership');
+
+  final isResident = _i1.ColumnBool('isResident');
+
+  final isRental = _i1.ColumnBool('isRental');
 
   @override
-  List<Column> get columns => [
+  List<_i1.Column> get columns => [
         id,
         socId,
         userId,

@@ -1,41 +1,16 @@
 /* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
 /*   To generate run: "serverpod generate"    */
 
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: public_member_api_docs
-// ignore_for_file: unused_import
-// ignore_for_file: unnecessary_import
-// ignore_for_file: overridden_fields
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: implementation_imports
 
-import 'package:serverpod/serverpod.dart';
-import 'package:serverpod_serialization/serverpod_serialization.dart';
-import 'dart:typed_data';
-import 'protocol.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:serverpod/serverpod.dart' as _i1;
 
-class SocBody extends TableRow {
-  @override
-  String get className => 'SocBody';
-  @override
-  String get tableName => 'soc_body';
-
-  static final t = SocBodyTable();
-
-  @override
-  int? id;
-  late int socId;
-  late int chairman;
-  late int secretary;
-  late int treasurer;
-  late int viceChairman;
-  late int viceSecretary;
-  late int viceTreasurer;
-  late List<int> members;
-  late int year;
-
+class SocBody extends _i1.TableRow {
   SocBody({
-    this.id,
+    int? id,
     required this.socId,
     required this.chairman,
     required this.secretary,
@@ -45,25 +20,58 @@ class SocBody extends TableRow {
     required this.viceTreasurer,
     required this.members,
     required this.year,
-  });
+  }) : super(id);
 
-  SocBody.fromSerialization(Map<String, dynamic> serialization) {
-    var _data = unwrapSerializationData(serialization);
-    id = _data['id'];
-    socId = _data['socId']!;
-    chairman = _data['chairman']!;
-    secretary = _data['secretary']!;
-    treasurer = _data['treasurer']!;
-    viceChairman = _data['viceChairman']!;
-    viceSecretary = _data['viceSecretary']!;
-    viceTreasurer = _data['viceTreasurer']!;
-    members = _data['members']!.cast<int>();
-    year = _data['year']!;
+  factory SocBody.fromJson(
+    Map<String, dynamic> jsonSerialization,
+    _i1.SerializationManager serializationManager,
+  ) {
+    return SocBody(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
+      socId: serializationManager.deserialize<int>(jsonSerialization['socId']),
+      chairman:
+          serializationManager.deserialize<int>(jsonSerialization['chairman']),
+      secretary:
+          serializationManager.deserialize<int>(jsonSerialization['secretary']),
+      treasurer:
+          serializationManager.deserialize<int>(jsonSerialization['treasurer']),
+      viceChairman: serializationManager
+          .deserialize<int>(jsonSerialization['viceChairman']),
+      viceSecretary: serializationManager
+          .deserialize<int>(jsonSerialization['viceSecretary']),
+      viceTreasurer: serializationManager
+          .deserialize<int>(jsonSerialization['viceTreasurer']),
+      members: serializationManager
+          .deserialize<List<int>>(jsonSerialization['members']),
+      year: serializationManager.deserialize<int>(jsonSerialization['year']),
+    );
   }
 
+  static final t = SocBodyTable();
+
+  int socId;
+
+  int chairman;
+
+  int secretary;
+
+  int treasurer;
+
+  int viceChairman;
+
+  int viceSecretary;
+
+  int viceTreasurer;
+
+  List<int> members;
+
+  int year;
+
   @override
-  Map<String, dynamic> serialize() {
-    return wrapSerializationData({
+  String get tableName => 'soc_body';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
       'id': id,
       'socId': socId,
       'chairman': chairman,
@@ -74,12 +82,12 @@ class SocBody extends TableRow {
       'viceTreasurer': viceTreasurer,
       'members': members,
       'year': year,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeForDatabase() {
-    return wrapSerializationData({
+  Map<String, dynamic> toJsonForDatabase() {
+    return {
       'id': id,
       'socId': socId,
       'chairman': chairman,
@@ -90,12 +98,12 @@ class SocBody extends TableRow {
       'viceTreasurer': viceTreasurer,
       'members': members,
       'year': year,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeAll() {
-    return wrapSerializationData({
+  Map<String, dynamic> allToJson() {
+    return {
       'id': id,
       'socId': socId,
       'chairman': chairman,
@@ -106,11 +114,14 @@ class SocBody extends TableRow {
       'viceTreasurer': viceTreasurer,
       'members': members,
       'year': year,
-    });
+    };
   }
 
   @override
-  void setColumn(String columnName, value) {
+  void setColumn(
+    String columnName,
+    value,
+  ) {
     switch (columnName) {
       case 'id':
         id = value;
@@ -148,15 +159,15 @@ class SocBody extends TableRow {
   }
 
   static Future<List<SocBody>> find(
-    Session session, {
+    _i1.Session session, {
     SocBodyExpressionBuilder? where,
     int? limit,
     int? offset,
-    Column? orderBy,
-    List<Order>? orderByList,
+    _i1.Column? orderBy,
+    List<_i1.Order>? orderByList,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.find<SocBody>(
       where: where != null ? where(SocBody.t) : null,
@@ -171,13 +182,13 @@ class SocBody extends TableRow {
   }
 
   static Future<SocBody?> findSingleRow(
-    Session session, {
+    _i1.Session session, {
     SocBodyExpressionBuilder? where,
     int? offset,
-    Column? orderBy,
+    _i1.Column? orderBy,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.findSingleRow<SocBody>(
       where: where != null ? where(SocBody.t) : null,
@@ -189,14 +200,17 @@ class SocBody extends TableRow {
     );
   }
 
-  static Future<SocBody?> findById(Session session, int id) async {
+  static Future<SocBody?> findById(
+    _i1.Session session,
+    int id,
+  ) async {
     return session.db.findById<SocBody>(id);
   }
 
   static Future<int> delete(
-    Session session, {
+    _i1.Session session, {
     required SocBodyExpressionBuilder where,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.delete<SocBody>(
       where: where(SocBody.t),
@@ -205,9 +219,9 @@ class SocBody extends TableRow {
   }
 
   static Future<bool> deleteRow(
-    Session session,
+    _i1.Session session,
     SocBody row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.deleteRow(
       row,
@@ -216,9 +230,9 @@ class SocBody extends TableRow {
   }
 
   static Future<bool> update(
-    Session session,
+    _i1.Session session,
     SocBody row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.update(
       row,
@@ -227,19 +241,22 @@ class SocBody extends TableRow {
   }
 
   static Future<void> insert(
-    Session session,
+    _i1.Session session,
     SocBody row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
-    return session.db.insert(row, transaction: transaction);
+    return session.db.insert(
+      row,
+      transaction: transaction,
+    );
   }
 
   static Future<int> count(
-    Session session, {
+    _i1.Session session, {
     SocBodyExpressionBuilder? where,
     int? limit,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.count<SocBody>(
       where: where != null ? where(SocBody.t) : null,
@@ -250,26 +267,33 @@ class SocBody extends TableRow {
   }
 }
 
-typedef SocBodyExpressionBuilder = Expression Function(SocBodyTable t);
+typedef SocBodyExpressionBuilder = _i1.Expression Function(SocBodyTable);
 
-class SocBodyTable extends Table {
+class SocBodyTable extends _i1.Table {
   SocBodyTable() : super(tableName: 'soc_body');
 
-  @override
-  String tableName = 'soc_body';
-  final id = ColumnInt('id');
-  final socId = ColumnInt('socId');
-  final chairman = ColumnInt('chairman');
-  final secretary = ColumnInt('secretary');
-  final treasurer = ColumnInt('treasurer');
-  final viceChairman = ColumnInt('viceChairman');
-  final viceSecretary = ColumnInt('viceSecretary');
-  final viceTreasurer = ColumnInt('viceTreasurer');
-  final members = ColumnSerializable('members');
-  final year = ColumnInt('year');
+  final id = _i1.ColumnInt('id');
+
+  final socId = _i1.ColumnInt('socId');
+
+  final chairman = _i1.ColumnInt('chairman');
+
+  final secretary = _i1.ColumnInt('secretary');
+
+  final treasurer = _i1.ColumnInt('treasurer');
+
+  final viceChairman = _i1.ColumnInt('viceChairman');
+
+  final viceSecretary = _i1.ColumnInt('viceSecretary');
+
+  final viceTreasurer = _i1.ColumnInt('viceTreasurer');
+
+  final members = _i1.ColumnSerializable('members');
+
+  final year = _i1.ColumnInt('year');
 
   @override
-  List<Column> get columns => [
+  List<_i1.Column> get columns => [
         id,
         socId,
         chairman,

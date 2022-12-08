@@ -1,4 +1,5 @@
 import 'package:mypod_server/import_helper.dart';
+import 'package:mypod_server/src/generated/area.dart';
 import 'package:serverpod/serverpod.dart';
 
 class AreaEndpoint extends Endpoint {
@@ -7,9 +8,12 @@ class AreaEndpoint extends Endpoint {
     return true;
   }
 
-  Future<List<Area>> getArea(Session session, {String? keyword}) async {
+  Future<List<Area>> getArea(Session session, int cityId,
+      {String? keyword}) async {
     return await Area.find(session,
-        where: (t) => keyword != null ? t.area.like(keyword) : Constant(true));
+        where: (t) =>
+            t.cityId.equals(cityId) &
+            (keyword != null ? t.area.like(keyword) : Constant(true)));
   }
 
   Future<bool> updateArea(Session session, Area area) async {

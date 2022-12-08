@@ -1,42 +1,16 @@
 /* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
 /*   To generate run: "serverpod generate"    */
 
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: public_member_api_docs
-// ignore_for_file: unused_import
-// ignore_for_file: unnecessary_import
-// ignore_for_file: overridden_fields
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: implementation_imports
 
-import 'package:serverpod/serverpod.dart';
-import 'package:serverpod_serialization/serverpod_serialization.dart';
-import 'dart:typed_data';
-import 'protocol.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:serverpod/serverpod.dart' as _i1;
 
-class Address extends TableRow {
-  @override
-  String get className => 'Address';
-  @override
-  String get tableName => 'address';
-
-  static final t = AddressTable();
-
-  @override
-  int? id;
-  late int areaId;
-  late int wardId;
-  late int cityId;
-  late int mcId;
-  late int districtId;
-  late int stateId;
-  late int countryId;
-  late String fullAddress;
-  late String landmark;
-  late int pincode;
-
+class Address extends _i1.TableRow {
   Address({
-    this.id,
+    int? id,
     required this.areaId,
     required this.wardId,
     required this.cityId,
@@ -47,26 +21,63 @@ class Address extends TableRow {
     required this.fullAddress,
     required this.landmark,
     required this.pincode,
-  });
+  }) : super(id);
 
-  Address.fromSerialization(Map<String, dynamic> serialization) {
-    var _data = unwrapSerializationData(serialization);
-    id = _data['id'];
-    areaId = _data['areaId']!;
-    wardId = _data['wardId']!;
-    cityId = _data['cityId']!;
-    mcId = _data['mcId']!;
-    districtId = _data['districtId']!;
-    stateId = _data['stateId']!;
-    countryId = _data['countryId']!;
-    fullAddress = _data['fullAddress']!;
-    landmark = _data['landmark']!;
-    pincode = _data['pincode']!;
+  factory Address.fromJson(
+    Map<String, dynamic> jsonSerialization,
+    _i1.SerializationManager serializationManager,
+  ) {
+    return Address(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
+      areaId:
+          serializationManager.deserialize<int>(jsonSerialization['areaId']),
+      wardId:
+          serializationManager.deserialize<int>(jsonSerialization['wardId']),
+      cityId:
+          serializationManager.deserialize<int>(jsonSerialization['cityId']),
+      mcId: serializationManager.deserialize<int>(jsonSerialization['mcId']),
+      districtId: serializationManager
+          .deserialize<int>(jsonSerialization['districtId']),
+      stateId:
+          serializationManager.deserialize<int>(jsonSerialization['stateId']),
+      countryId:
+          serializationManager.deserialize<int>(jsonSerialization['countryId']),
+      fullAddress: serializationManager
+          .deserialize<String>(jsonSerialization['fullAddress']),
+      landmark: serializationManager
+          .deserialize<String>(jsonSerialization['landmark']),
+      pincode:
+          serializationManager.deserialize<int>(jsonSerialization['pincode']),
+    );
   }
 
+  static final t = AddressTable();
+
+  int areaId;
+
+  int wardId;
+
+  int cityId;
+
+  int mcId;
+
+  int districtId;
+
+  int stateId;
+
+  int countryId;
+
+  String fullAddress;
+
+  String landmark;
+
+  int pincode;
+
   @override
-  Map<String, dynamic> serialize() {
-    return wrapSerializationData({
+  String get tableName => 'address';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
       'id': id,
       'areaId': areaId,
       'wardId': wardId,
@@ -78,12 +89,12 @@ class Address extends TableRow {
       'fullAddress': fullAddress,
       'landmark': landmark,
       'pincode': pincode,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeForDatabase() {
-    return wrapSerializationData({
+  Map<String, dynamic> toJsonForDatabase() {
+    return {
       'id': id,
       'areaId': areaId,
       'wardId': wardId,
@@ -95,12 +106,12 @@ class Address extends TableRow {
       'fullAddress': fullAddress,
       'landmark': landmark,
       'pincode': pincode,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeAll() {
-    return wrapSerializationData({
+  Map<String, dynamic> allToJson() {
+    return {
       'id': id,
       'areaId': areaId,
       'wardId': wardId,
@@ -112,11 +123,14 @@ class Address extends TableRow {
       'fullAddress': fullAddress,
       'landmark': landmark,
       'pincode': pincode,
-    });
+    };
   }
 
   @override
-  void setColumn(String columnName, value) {
+  void setColumn(
+    String columnName,
+    value,
+  ) {
     switch (columnName) {
       case 'id':
         id = value;
@@ -157,15 +171,15 @@ class Address extends TableRow {
   }
 
   static Future<List<Address>> find(
-    Session session, {
+    _i1.Session session, {
     AddressExpressionBuilder? where,
     int? limit,
     int? offset,
-    Column? orderBy,
-    List<Order>? orderByList,
+    _i1.Column? orderBy,
+    List<_i1.Order>? orderByList,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.find<Address>(
       where: where != null ? where(Address.t) : null,
@@ -180,13 +194,13 @@ class Address extends TableRow {
   }
 
   static Future<Address?> findSingleRow(
-    Session session, {
+    _i1.Session session, {
     AddressExpressionBuilder? where,
     int? offset,
-    Column? orderBy,
+    _i1.Column? orderBy,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.findSingleRow<Address>(
       where: where != null ? where(Address.t) : null,
@@ -198,14 +212,17 @@ class Address extends TableRow {
     );
   }
 
-  static Future<Address?> findById(Session session, int id) async {
+  static Future<Address?> findById(
+    _i1.Session session,
+    int id,
+  ) async {
     return session.db.findById<Address>(id);
   }
 
   static Future<int> delete(
-    Session session, {
+    _i1.Session session, {
     required AddressExpressionBuilder where,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.delete<Address>(
       where: where(Address.t),
@@ -214,9 +231,9 @@ class Address extends TableRow {
   }
 
   static Future<bool> deleteRow(
-    Session session,
+    _i1.Session session,
     Address row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.deleteRow(
       row,
@@ -225,9 +242,9 @@ class Address extends TableRow {
   }
 
   static Future<bool> update(
-    Session session,
+    _i1.Session session,
     Address row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.update(
       row,
@@ -236,19 +253,22 @@ class Address extends TableRow {
   }
 
   static Future<void> insert(
-    Session session,
+    _i1.Session session,
     Address row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
-    return session.db.insert(row, transaction: transaction);
+    return session.db.insert(
+      row,
+      transaction: transaction,
+    );
   }
 
   static Future<int> count(
-    Session session, {
+    _i1.Session session, {
     AddressExpressionBuilder? where,
     int? limit,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.count<Address>(
       where: where != null ? where(Address.t) : null,
@@ -259,27 +279,35 @@ class Address extends TableRow {
   }
 }
 
-typedef AddressExpressionBuilder = Expression Function(AddressTable t);
+typedef AddressExpressionBuilder = _i1.Expression Function(AddressTable);
 
-class AddressTable extends Table {
+class AddressTable extends _i1.Table {
   AddressTable() : super(tableName: 'address');
 
-  @override
-  String tableName = 'address';
-  final id = ColumnInt('id');
-  final areaId = ColumnInt('areaId');
-  final wardId = ColumnInt('wardId');
-  final cityId = ColumnInt('cityId');
-  final mcId = ColumnInt('mcId');
-  final districtId = ColumnInt('districtId');
-  final stateId = ColumnInt('stateId');
-  final countryId = ColumnInt('countryId');
-  final fullAddress = ColumnString('fullAddress');
-  final landmark = ColumnString('landmark');
-  final pincode = ColumnInt('pincode');
+  final id = _i1.ColumnInt('id');
+
+  final areaId = _i1.ColumnInt('areaId');
+
+  final wardId = _i1.ColumnInt('wardId');
+
+  final cityId = _i1.ColumnInt('cityId');
+
+  final mcId = _i1.ColumnInt('mcId');
+
+  final districtId = _i1.ColumnInt('districtId');
+
+  final stateId = _i1.ColumnInt('stateId');
+
+  final countryId = _i1.ColumnInt('countryId');
+
+  final fullAddress = _i1.ColumnString('fullAddress');
+
+  final landmark = _i1.ColumnString('landmark');
+
+  final pincode = _i1.ColumnInt('pincode');
 
   @override
-  List<Column> get columns => [
+  List<_i1.Column> get columns => [
         id,
         areaId,
         wardId,

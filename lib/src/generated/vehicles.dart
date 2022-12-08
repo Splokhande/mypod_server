@@ -1,98 +1,105 @@
 /* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
 /*   To generate run: "serverpod generate"    */
 
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: public_member_api_docs
-// ignore_for_file: unused_import
-// ignore_for_file: unnecessary_import
-// ignore_for_file: overridden_fields
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: implementation_imports
 
-import 'package:serverpod/serverpod.dart';
-import 'package:serverpod_serialization/serverpod_serialization.dart';
-import 'dart:typed_data';
-import 'protocol.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:serverpod/serverpod.dart' as _i1;
 
-class Vehicles extends TableRow {
-  @override
-  String get className => 'Vehicles';
-  @override
-  String get tableName => 'vehicles';
-
-  static final t = VehiclesTable();
-
-  @override
-  int? id;
-  late String vehicleNo;
-  late int ownerId;
-  late int roomId;
-  late int vehicleType;
-  late DateTime entryDate;
-  late DateTime updatedDate;
-
+class Vehicles extends _i1.TableRow {
   Vehicles({
-    this.id,
+    int? id,
     required this.vehicleNo,
     required this.ownerId,
     required this.roomId,
     required this.vehicleType,
     required this.entryDate,
     required this.updatedDate,
-  });
+  }) : super(id);
 
-  Vehicles.fromSerialization(Map<String, dynamic> serialization) {
-    var _data = unwrapSerializationData(serialization);
-    id = _data['id'];
-    vehicleNo = _data['vehicleNo']!;
-    ownerId = _data['ownerId']!;
-    roomId = _data['roomId']!;
-    vehicleType = _data['vehicleType']!;
-    entryDate = DateTime.tryParse(_data['entryDate'])!;
-    updatedDate = DateTime.tryParse(_data['updatedDate'])!;
+  factory Vehicles.fromJson(
+    Map<String, dynamic> jsonSerialization,
+    _i1.SerializationManager serializationManager,
+  ) {
+    return Vehicles(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
+      vehicleNo: serializationManager
+          .deserialize<String>(jsonSerialization['vehicleNo']),
+      ownerId:
+          serializationManager.deserialize<int>(jsonSerialization['ownerId']),
+      roomId:
+          serializationManager.deserialize<int>(jsonSerialization['roomId']),
+      vehicleType: serializationManager
+          .deserialize<int>(jsonSerialization['vehicleType']),
+      entryDate: serializationManager
+          .deserialize<DateTime>(jsonSerialization['entryDate']),
+      updatedDate: serializationManager
+          .deserialize<DateTime>(jsonSerialization['updatedDate']),
+    );
   }
 
+  static final t = VehiclesTable();
+
+  String vehicleNo;
+
+  int ownerId;
+
+  int roomId;
+
+  int vehicleType;
+
+  DateTime entryDate;
+
+  DateTime updatedDate;
+
   @override
-  Map<String, dynamic> serialize() {
-    return wrapSerializationData({
+  String get tableName => 'vehicles';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
       'id': id,
       'vehicleNo': vehicleNo,
       'ownerId': ownerId,
       'roomId': roomId,
       'vehicleType': vehicleType,
-      'entryDate': entryDate.toUtc().toIso8601String(),
-      'updatedDate': updatedDate.toUtc().toIso8601String(),
-    });
+      'entryDate': entryDate,
+      'updatedDate': updatedDate,
+    };
   }
 
   @override
-  Map<String, dynamic> serializeForDatabase() {
-    return wrapSerializationData({
+  Map<String, dynamic> toJsonForDatabase() {
+    return {
       'id': id,
       'vehicleNo': vehicleNo,
       'ownerId': ownerId,
       'roomId': roomId,
       'vehicleType': vehicleType,
-      'entryDate': entryDate.toUtc().toIso8601String(),
-      'updatedDate': updatedDate.toUtc().toIso8601String(),
-    });
+      'entryDate': entryDate,
+      'updatedDate': updatedDate,
+    };
   }
 
   @override
-  Map<String, dynamic> serializeAll() {
-    return wrapSerializationData({
+  Map<String, dynamic> allToJson() {
+    return {
       'id': id,
       'vehicleNo': vehicleNo,
       'ownerId': ownerId,
       'roomId': roomId,
       'vehicleType': vehicleType,
-      'entryDate': entryDate.toUtc().toIso8601String(),
-      'updatedDate': updatedDate.toUtc().toIso8601String(),
-    });
+      'entryDate': entryDate,
+      'updatedDate': updatedDate,
+    };
   }
 
   @override
-  void setColumn(String columnName, value) {
+  void setColumn(
+    String columnName,
+    value,
+  ) {
     switch (columnName) {
       case 'id':
         id = value;
@@ -121,15 +128,15 @@ class Vehicles extends TableRow {
   }
 
   static Future<List<Vehicles>> find(
-    Session session, {
+    _i1.Session session, {
     VehiclesExpressionBuilder? where,
     int? limit,
     int? offset,
-    Column? orderBy,
-    List<Order>? orderByList,
+    _i1.Column? orderBy,
+    List<_i1.Order>? orderByList,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.find<Vehicles>(
       where: where != null ? where(Vehicles.t) : null,
@@ -144,13 +151,13 @@ class Vehicles extends TableRow {
   }
 
   static Future<Vehicles?> findSingleRow(
-    Session session, {
+    _i1.Session session, {
     VehiclesExpressionBuilder? where,
     int? offset,
-    Column? orderBy,
+    _i1.Column? orderBy,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.findSingleRow<Vehicles>(
       where: where != null ? where(Vehicles.t) : null,
@@ -162,14 +169,17 @@ class Vehicles extends TableRow {
     );
   }
 
-  static Future<Vehicles?> findById(Session session, int id) async {
+  static Future<Vehicles?> findById(
+    _i1.Session session,
+    int id,
+  ) async {
     return session.db.findById<Vehicles>(id);
   }
 
   static Future<int> delete(
-    Session session, {
+    _i1.Session session, {
     required VehiclesExpressionBuilder where,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.delete<Vehicles>(
       where: where(Vehicles.t),
@@ -178,9 +188,9 @@ class Vehicles extends TableRow {
   }
 
   static Future<bool> deleteRow(
-    Session session,
+    _i1.Session session,
     Vehicles row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.deleteRow(
       row,
@@ -189,9 +199,9 @@ class Vehicles extends TableRow {
   }
 
   static Future<bool> update(
-    Session session,
+    _i1.Session session,
     Vehicles row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.update(
       row,
@@ -200,19 +210,22 @@ class Vehicles extends TableRow {
   }
 
   static Future<void> insert(
-    Session session,
+    _i1.Session session,
     Vehicles row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
-    return session.db.insert(row, transaction: transaction);
+    return session.db.insert(
+      row,
+      transaction: transaction,
+    );
   }
 
   static Future<int> count(
-    Session session, {
+    _i1.Session session, {
     VehiclesExpressionBuilder? where,
     int? limit,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.count<Vehicles>(
       where: where != null ? where(Vehicles.t) : null,
@@ -223,23 +236,27 @@ class Vehicles extends TableRow {
   }
 }
 
-typedef VehiclesExpressionBuilder = Expression Function(VehiclesTable t);
+typedef VehiclesExpressionBuilder = _i1.Expression Function(VehiclesTable);
 
-class VehiclesTable extends Table {
+class VehiclesTable extends _i1.Table {
   VehiclesTable() : super(tableName: 'vehicles');
 
-  @override
-  String tableName = 'vehicles';
-  final id = ColumnInt('id');
-  final vehicleNo = ColumnString('vehicleNo');
-  final ownerId = ColumnInt('ownerId');
-  final roomId = ColumnInt('roomId');
-  final vehicleType = ColumnInt('vehicleType');
-  final entryDate = ColumnDateTime('entryDate');
-  final updatedDate = ColumnDateTime('updatedDate');
+  final id = _i1.ColumnInt('id');
+
+  final vehicleNo = _i1.ColumnString('vehicleNo');
+
+  final ownerId = _i1.ColumnInt('ownerId');
+
+  final roomId = _i1.ColumnInt('roomId');
+
+  final vehicleType = _i1.ColumnInt('vehicleType');
+
+  final entryDate = _i1.ColumnDateTime('entryDate');
+
+  final updatedDate = _i1.ColumnDateTime('updatedDate');
 
   @override
-  List<Column> get columns => [
+  List<_i1.Column> get columns => [
         id,
         vehicleNo,
         ownerId,

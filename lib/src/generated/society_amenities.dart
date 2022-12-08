@@ -1,46 +1,16 @@
 /* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
 /*   To generate run: "serverpod generate"    */
 
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: public_member_api_docs
-// ignore_for_file: unused_import
-// ignore_for_file: unnecessary_import
-// ignore_for_file: overridden_fields
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: implementation_imports
 
-import 'package:serverpod/serverpod.dart';
-import 'package:serverpod_serialization/serverpod_serialization.dart';
-import 'dart:typed_data';
-import 'protocol.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:serverpod/serverpod.dart' as _i1;
 
-class SocietyAmenities extends TableRow {
-  @override
-  String get className => 'SocietyAmenities';
-  @override
-  String get tableName => 'soc_amenities';
-
-  static final t = SocietyAmenitiesTable();
-
-  @override
-  int? id;
-  late int socId;
-  late bool bikeParking;
-  late bool carParking;
-  late bool powerBackup;
-  late bool securitySystem;
-  late bool lift;
-  late bool waterSupplyAllDay;
-  late bool gym;
-  late bool solarEnergy;
-  late bool rainwaterHarvesting;
-  late bool nearbyHospital;
-  late bool nearbySchool;
-  late bool nearbyShopping;
-  late bool onSitMaintenance;
-
+class SocietyAmenities extends _i1.TableRow {
   SocietyAmenities({
-    this.id,
+    int? id,
     required this.socId,
     required this.bikeParking,
     required this.carParking,
@@ -55,30 +25,77 @@ class SocietyAmenities extends TableRow {
     required this.nearbySchool,
     required this.nearbyShopping,
     required this.onSitMaintenance,
-  });
+  }) : super(id);
 
-  SocietyAmenities.fromSerialization(Map<String, dynamic> serialization) {
-    var _data = unwrapSerializationData(serialization);
-    id = _data['id'];
-    socId = _data['socId']!;
-    bikeParking = _data['bikeParking']!;
-    carParking = _data['carParking']!;
-    powerBackup = _data['powerBackup']!;
-    securitySystem = _data['securitySystem']!;
-    lift = _data['lift']!;
-    waterSupplyAllDay = _data['waterSupplyAllDay']!;
-    gym = _data['gym']!;
-    solarEnergy = _data['solarEnergy']!;
-    rainwaterHarvesting = _data['rainwaterHarvesting']!;
-    nearbyHospital = _data['nearbyHospital']!;
-    nearbySchool = _data['nearbySchool']!;
-    nearbyShopping = _data['nearbyShopping']!;
-    onSitMaintenance = _data['onSitMaintenance']!;
+  factory SocietyAmenities.fromJson(
+    Map<String, dynamic> jsonSerialization,
+    _i1.SerializationManager serializationManager,
+  ) {
+    return SocietyAmenities(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
+      socId: serializationManager.deserialize<int>(jsonSerialization['socId']),
+      bikeParking: serializationManager
+          .deserialize<bool>(jsonSerialization['bikeParking']),
+      carParking: serializationManager
+          .deserialize<bool>(jsonSerialization['carParking']),
+      powerBackup: serializationManager
+          .deserialize<bool>(jsonSerialization['powerBackup']),
+      securitySystem: serializationManager
+          .deserialize<bool>(jsonSerialization['securitySystem']),
+      lift: serializationManager.deserialize<bool>(jsonSerialization['lift']),
+      waterSupplyAllDay: serializationManager
+          .deserialize<bool>(jsonSerialization['waterSupplyAllDay']),
+      gym: serializationManager.deserialize<bool>(jsonSerialization['gym']),
+      solarEnergy: serializationManager
+          .deserialize<bool>(jsonSerialization['solarEnergy']),
+      rainwaterHarvesting: serializationManager
+          .deserialize<bool>(jsonSerialization['rainwaterHarvesting']),
+      nearbyHospital: serializationManager
+          .deserialize<bool>(jsonSerialization['nearbyHospital']),
+      nearbySchool: serializationManager
+          .deserialize<bool>(jsonSerialization['nearbySchool']),
+      nearbyShopping: serializationManager
+          .deserialize<bool>(jsonSerialization['nearbyShopping']),
+      onSitMaintenance: serializationManager
+          .deserialize<bool>(jsonSerialization['onSitMaintenance']),
+    );
   }
 
+  static final t = SocietyAmenitiesTable();
+
+  int socId;
+
+  bool bikeParking;
+
+  bool carParking;
+
+  bool powerBackup;
+
+  bool securitySystem;
+
+  bool lift;
+
+  bool waterSupplyAllDay;
+
+  bool gym;
+
+  bool solarEnergy;
+
+  bool rainwaterHarvesting;
+
+  bool nearbyHospital;
+
+  bool nearbySchool;
+
+  bool nearbyShopping;
+
+  bool onSitMaintenance;
+
   @override
-  Map<String, dynamic> serialize() {
-    return wrapSerializationData({
+  String get tableName => 'soc_amenities';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
       'id': id,
       'socId': socId,
       'bikeParking': bikeParking,
@@ -94,12 +111,12 @@ class SocietyAmenities extends TableRow {
       'nearbySchool': nearbySchool,
       'nearbyShopping': nearbyShopping,
       'onSitMaintenance': onSitMaintenance,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeForDatabase() {
-    return wrapSerializationData({
+  Map<String, dynamic> toJsonForDatabase() {
+    return {
       'id': id,
       'socId': socId,
       'bikeParking': bikeParking,
@@ -115,12 +132,12 @@ class SocietyAmenities extends TableRow {
       'nearbySchool': nearbySchool,
       'nearbyShopping': nearbyShopping,
       'onSitMaintenance': onSitMaintenance,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeAll() {
-    return wrapSerializationData({
+  Map<String, dynamic> allToJson() {
+    return {
       'id': id,
       'socId': socId,
       'bikeParking': bikeParking,
@@ -136,11 +153,14 @@ class SocietyAmenities extends TableRow {
       'nearbySchool': nearbySchool,
       'nearbyShopping': nearbyShopping,
       'onSitMaintenance': onSitMaintenance,
-    });
+    };
   }
 
   @override
-  void setColumn(String columnName, value) {
+  void setColumn(
+    String columnName,
+    value,
+  ) {
     switch (columnName) {
       case 'id':
         id = value;
@@ -193,15 +213,15 @@ class SocietyAmenities extends TableRow {
   }
 
   static Future<List<SocietyAmenities>> find(
-    Session session, {
+    _i1.Session session, {
     SocietyAmenitiesExpressionBuilder? where,
     int? limit,
     int? offset,
-    Column? orderBy,
-    List<Order>? orderByList,
+    _i1.Column? orderBy,
+    List<_i1.Order>? orderByList,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.find<SocietyAmenities>(
       where: where != null ? where(SocietyAmenities.t) : null,
@@ -216,13 +236,13 @@ class SocietyAmenities extends TableRow {
   }
 
   static Future<SocietyAmenities?> findSingleRow(
-    Session session, {
+    _i1.Session session, {
     SocietyAmenitiesExpressionBuilder? where,
     int? offset,
-    Column? orderBy,
+    _i1.Column? orderBy,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.findSingleRow<SocietyAmenities>(
       where: where != null ? where(SocietyAmenities.t) : null,
@@ -234,14 +254,17 @@ class SocietyAmenities extends TableRow {
     );
   }
 
-  static Future<SocietyAmenities?> findById(Session session, int id) async {
+  static Future<SocietyAmenities?> findById(
+    _i1.Session session,
+    int id,
+  ) async {
     return session.db.findById<SocietyAmenities>(id);
   }
 
   static Future<int> delete(
-    Session session, {
+    _i1.Session session, {
     required SocietyAmenitiesExpressionBuilder where,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.delete<SocietyAmenities>(
       where: where(SocietyAmenities.t),
@@ -250,9 +273,9 @@ class SocietyAmenities extends TableRow {
   }
 
   static Future<bool> deleteRow(
-    Session session,
+    _i1.Session session,
     SocietyAmenities row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.deleteRow(
       row,
@@ -261,9 +284,9 @@ class SocietyAmenities extends TableRow {
   }
 
   static Future<bool> update(
-    Session session,
+    _i1.Session session,
     SocietyAmenities row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.update(
       row,
@@ -272,19 +295,22 @@ class SocietyAmenities extends TableRow {
   }
 
   static Future<void> insert(
-    Session session,
+    _i1.Session session,
     SocietyAmenities row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
-    return session.db.insert(row, transaction: transaction);
+    return session.db.insert(
+      row,
+      transaction: transaction,
+    );
   }
 
   static Future<int> count(
-    Session session, {
+    _i1.Session session, {
     SocietyAmenitiesExpressionBuilder? where,
     int? limit,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.count<SocietyAmenities>(
       where: where != null ? where(SocietyAmenities.t) : null,
@@ -295,32 +321,44 @@ class SocietyAmenities extends TableRow {
   }
 }
 
-typedef SocietyAmenitiesExpressionBuilder = Expression Function(
-    SocietyAmenitiesTable t);
+typedef SocietyAmenitiesExpressionBuilder = _i1.Expression Function(
+    SocietyAmenitiesTable);
 
-class SocietyAmenitiesTable extends Table {
+class SocietyAmenitiesTable extends _i1.Table {
   SocietyAmenitiesTable() : super(tableName: 'soc_amenities');
 
-  @override
-  String tableName = 'soc_amenities';
-  final id = ColumnInt('id');
-  final socId = ColumnInt('socId');
-  final bikeParking = ColumnBool('bikeParking');
-  final carParking = ColumnBool('carParking');
-  final powerBackup = ColumnBool('powerBackup');
-  final securitySystem = ColumnBool('securitySystem');
-  final lift = ColumnBool('lift');
-  final waterSupplyAllDay = ColumnBool('waterSupplyAllDay');
-  final gym = ColumnBool('gym');
-  final solarEnergy = ColumnBool('solarEnergy');
-  final rainwaterHarvesting = ColumnBool('rainwaterHarvesting');
-  final nearbyHospital = ColumnBool('nearbyHospital');
-  final nearbySchool = ColumnBool('nearbySchool');
-  final nearbyShopping = ColumnBool('nearbyShopping');
-  final onSitMaintenance = ColumnBool('onSitMaintenance');
+  final id = _i1.ColumnInt('id');
+
+  final socId = _i1.ColumnInt('socId');
+
+  final bikeParking = _i1.ColumnBool('bikeParking');
+
+  final carParking = _i1.ColumnBool('carParking');
+
+  final powerBackup = _i1.ColumnBool('powerBackup');
+
+  final securitySystem = _i1.ColumnBool('securitySystem');
+
+  final lift = _i1.ColumnBool('lift');
+
+  final waterSupplyAllDay = _i1.ColumnBool('waterSupplyAllDay');
+
+  final gym = _i1.ColumnBool('gym');
+
+  final solarEnergy = _i1.ColumnBool('solarEnergy');
+
+  final rainwaterHarvesting = _i1.ColumnBool('rainwaterHarvesting');
+
+  final nearbyHospital = _i1.ColumnBool('nearbyHospital');
+
+  final nearbySchool = _i1.ColumnBool('nearbySchool');
+
+  final nearbyShopping = _i1.ColumnBool('nearbyShopping');
+
+  final onSitMaintenance = _i1.ColumnBool('onSitMaintenance');
 
   @override
-  List<Column> get columns => [
+  List<_i1.Column> get columns => [
         id,
         socId,
         bikeParking,

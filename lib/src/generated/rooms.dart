@@ -1,46 +1,16 @@
 /* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
 /*   To generate run: "serverpod generate"    */
 
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: public_member_api_docs
-// ignore_for_file: unused_import
-// ignore_for_file: unnecessary_import
-// ignore_for_file: overridden_fields
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: implementation_imports
 
-import 'package:serverpod/serverpod.dart';
-import 'package:serverpod_serialization/serverpod_serialization.dart';
-import 'dart:typed_data';
-import 'protocol.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:serverpod/serverpod.dart' as _i1;
 
-class Rooms extends TableRow {
-  @override
-  String get className => 'Rooms';
-  @override
-  String get tableName => 'rooms';
-
-  static final t = RoomsTable();
-
-  @override
-  int? id;
-  late int socId;
-  late int roomNo;
-  late String owner;
-  late bool onRent;
-  late bool onSale;
-  late int carpetArea;
-  late String roomStructure;
-  late bool balcony;
-  late bool isOccupied;
-  late int totalMembers;
-  late bool roomExist;
-  late int ownerId;
-  late List<int> membersId;
-  late List<int> rentalId;
-
+class Rooms extends _i1.TableRow {
   Rooms({
-    this.id,
+    int? id,
     required this.socId,
     required this.roomNo,
     required this.owner,
@@ -55,30 +25,79 @@ class Rooms extends TableRow {
     required this.ownerId,
     required this.membersId,
     required this.rentalId,
-  });
+  }) : super(id);
 
-  Rooms.fromSerialization(Map<String, dynamic> serialization) {
-    var _data = unwrapSerializationData(serialization);
-    id = _data['id'];
-    socId = _data['socId']!;
-    roomNo = _data['roomNo']!;
-    owner = _data['owner']!;
-    onRent = _data['onRent']!;
-    onSale = _data['onSale']!;
-    carpetArea = _data['carpetArea']!;
-    roomStructure = _data['roomStructure']!;
-    balcony = _data['balcony']!;
-    isOccupied = _data['isOccupied']!;
-    totalMembers = _data['totalMembers']!;
-    roomExist = _data['roomExist']!;
-    ownerId = _data['ownerId']!;
-    membersId = _data['membersId']!.cast<int>();
-    rentalId = _data['rentalId']!.cast<int>();
+  factory Rooms.fromJson(
+    Map<String, dynamic> jsonSerialization,
+    _i1.SerializationManager serializationManager,
+  ) {
+    return Rooms(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
+      socId: serializationManager.deserialize<int>(jsonSerialization['socId']),
+      roomNo:
+          serializationManager.deserialize<int>(jsonSerialization['roomNo']),
+      owner:
+          serializationManager.deserialize<String>(jsonSerialization['owner']),
+      onRent:
+          serializationManager.deserialize<bool>(jsonSerialization['onRent']),
+      onSale:
+          serializationManager.deserialize<bool>(jsonSerialization['onSale']),
+      carpetArea: serializationManager
+          .deserialize<int>(jsonSerialization['carpetArea']),
+      roomStructure: serializationManager
+          .deserialize<String>(jsonSerialization['roomStructure']),
+      balcony:
+          serializationManager.deserialize<bool>(jsonSerialization['balcony']),
+      isOccupied: serializationManager
+          .deserialize<bool>(jsonSerialization['isOccupied']),
+      totalMembers: serializationManager
+          .deserialize<int>(jsonSerialization['totalMembers']),
+      roomExist: serializationManager
+          .deserialize<bool>(jsonSerialization['roomExist']),
+      ownerId:
+          serializationManager.deserialize<int>(jsonSerialization['ownerId']),
+      membersId: serializationManager
+          .deserialize<List<int>>(jsonSerialization['membersId']),
+      rentalId: serializationManager
+          .deserialize<List<int>>(jsonSerialization['rentalId']),
+    );
   }
 
+  static final t = RoomsTable();
+
+  int socId;
+
+  int roomNo;
+
+  String owner;
+
+  bool onRent;
+
+  bool onSale;
+
+  int carpetArea;
+
+  String roomStructure;
+
+  bool balcony;
+
+  bool isOccupied;
+
+  int totalMembers;
+
+  bool roomExist;
+
+  int ownerId;
+
+  List<int> membersId;
+
+  List<int> rentalId;
+
   @override
-  Map<String, dynamic> serialize() {
-    return wrapSerializationData({
+  String get tableName => 'rooms';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
       'id': id,
       'socId': socId,
       'roomNo': roomNo,
@@ -94,12 +113,12 @@ class Rooms extends TableRow {
       'ownerId': ownerId,
       'membersId': membersId,
       'rentalId': rentalId,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeForDatabase() {
-    return wrapSerializationData({
+  Map<String, dynamic> toJsonForDatabase() {
+    return {
       'id': id,
       'socId': socId,
       'roomNo': roomNo,
@@ -115,12 +134,12 @@ class Rooms extends TableRow {
       'ownerId': ownerId,
       'membersId': membersId,
       'rentalId': rentalId,
-    });
+    };
   }
 
   @override
-  Map<String, dynamic> serializeAll() {
-    return wrapSerializationData({
+  Map<String, dynamic> allToJson() {
+    return {
       'id': id,
       'socId': socId,
       'roomNo': roomNo,
@@ -136,11 +155,14 @@ class Rooms extends TableRow {
       'ownerId': ownerId,
       'membersId': membersId,
       'rentalId': rentalId,
-    });
+    };
   }
 
   @override
-  void setColumn(String columnName, value) {
+  void setColumn(
+    String columnName,
+    value,
+  ) {
     switch (columnName) {
       case 'id':
         id = value;
@@ -193,15 +215,15 @@ class Rooms extends TableRow {
   }
 
   static Future<List<Rooms>> find(
-    Session session, {
+    _i1.Session session, {
     RoomsExpressionBuilder? where,
     int? limit,
     int? offset,
-    Column? orderBy,
-    List<Order>? orderByList,
+    _i1.Column? orderBy,
+    List<_i1.Order>? orderByList,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.find<Rooms>(
       where: where != null ? where(Rooms.t) : null,
@@ -216,13 +238,13 @@ class Rooms extends TableRow {
   }
 
   static Future<Rooms?> findSingleRow(
-    Session session, {
+    _i1.Session session, {
     RoomsExpressionBuilder? where,
     int? offset,
-    Column? orderBy,
+    _i1.Column? orderBy,
     bool orderDescending = false,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.findSingleRow<Rooms>(
       where: where != null ? where(Rooms.t) : null,
@@ -234,14 +256,17 @@ class Rooms extends TableRow {
     );
   }
 
-  static Future<Rooms?> findById(Session session, int id) async {
+  static Future<Rooms?> findById(
+    _i1.Session session,
+    int id,
+  ) async {
     return session.db.findById<Rooms>(id);
   }
 
   static Future<int> delete(
-    Session session, {
+    _i1.Session session, {
     required RoomsExpressionBuilder where,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.delete<Rooms>(
       where: where(Rooms.t),
@@ -250,9 +275,9 @@ class Rooms extends TableRow {
   }
 
   static Future<bool> deleteRow(
-    Session session,
+    _i1.Session session,
     Rooms row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.deleteRow(
       row,
@@ -261,9 +286,9 @@ class Rooms extends TableRow {
   }
 
   static Future<bool> update(
-    Session session,
+    _i1.Session session,
     Rooms row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.update(
       row,
@@ -272,19 +297,22 @@ class Rooms extends TableRow {
   }
 
   static Future<void> insert(
-    Session session,
+    _i1.Session session,
     Rooms row, {
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
-    return session.db.insert(row, transaction: transaction);
+    return session.db.insert(
+      row,
+      transaction: transaction,
+    );
   }
 
   static Future<int> count(
-    Session session, {
+    _i1.Session session, {
     RoomsExpressionBuilder? where,
     int? limit,
     bool useCache = true,
-    Transaction? transaction,
+    _i1.Transaction? transaction,
   }) async {
     return session.db.count<Rooms>(
       where: where != null ? where(Rooms.t) : null,
@@ -295,31 +323,43 @@ class Rooms extends TableRow {
   }
 }
 
-typedef RoomsExpressionBuilder = Expression Function(RoomsTable t);
+typedef RoomsExpressionBuilder = _i1.Expression Function(RoomsTable);
 
-class RoomsTable extends Table {
+class RoomsTable extends _i1.Table {
   RoomsTable() : super(tableName: 'rooms');
 
-  @override
-  String tableName = 'rooms';
-  final id = ColumnInt('id');
-  final socId = ColumnInt('socId');
-  final roomNo = ColumnInt('roomNo');
-  final owner = ColumnString('owner');
-  final onRent = ColumnBool('onRent');
-  final onSale = ColumnBool('onSale');
-  final carpetArea = ColumnInt('carpetArea');
-  final roomStructure = ColumnString('roomStructure');
-  final balcony = ColumnBool('balcony');
-  final isOccupied = ColumnBool('isOccupied');
-  final totalMembers = ColumnInt('totalMembers');
-  final roomExist = ColumnBool('roomExist');
-  final ownerId = ColumnInt('ownerId');
-  final membersId = ColumnSerializable('membersId');
-  final rentalId = ColumnSerializable('rentalId');
+  final id = _i1.ColumnInt('id');
+
+  final socId = _i1.ColumnInt('socId');
+
+  final roomNo = _i1.ColumnInt('roomNo');
+
+  final owner = _i1.ColumnString('owner');
+
+  final onRent = _i1.ColumnBool('onRent');
+
+  final onSale = _i1.ColumnBool('onSale');
+
+  final carpetArea = _i1.ColumnInt('carpetArea');
+
+  final roomStructure = _i1.ColumnString('roomStructure');
+
+  final balcony = _i1.ColumnBool('balcony');
+
+  final isOccupied = _i1.ColumnBool('isOccupied');
+
+  final totalMembers = _i1.ColumnInt('totalMembers');
+
+  final roomExist = _i1.ColumnBool('roomExist');
+
+  final ownerId = _i1.ColumnInt('ownerId');
+
+  final membersId = _i1.ColumnSerializable('membersId');
+
+  final rentalId = _i1.ColumnSerializable('rentalId');
 
   @override
-  List<Column> get columns => [
+  List<_i1.Column> get columns => [
         id,
         socId,
         roomNo,
